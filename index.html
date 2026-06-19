@@ -6,7 +6,7 @@
   <title>श्री स्वामी समर्थ परिवार | विश्वासू कर्ज आणि ठेवी</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Mukta:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Mukta:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Marathi:ital@0;1&family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
@@ -47,10 +47,11 @@ body{font-family:'Mukta','Inter',sans-serif;color:#1f2937;background:#fff;overfl
   --blue:#1E3A8A;  --bdark:#0a0f2e;
   --gold:#D4AF37;  --goldl:#f5e27a;
   --glight:#DCFCE7;
+  --stage-size: clamp(140px, 30vw, 190px);
 }
 
 /* ── Keyframes ─────────────────────────────── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes slideDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes loadBar{from{width:0}to{width:100%}}
@@ -58,27 +59,164 @@ body{font-family:'Mukta','Inter',sans-serif;color:#1f2937;background:#fff;overfl
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ── Preloader ─────────────────────────────── */
-#preloader{
-  position:fixed;inset:0;z-index:99999;
-  background:linear-gradient(160deg,var(--gdark) 0%,#0c2a5e 60%,var(--blue) 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  transition:opacity .4s ease,visibility .4s ease;
+/* ── Preloader (NEW VERSION) ───────────────── */
+#ssp-preloader{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(160deg, var(--gdark) 0%, #0c2a5e 60%, var(--blue) 100%);
+  overflow:hidden;
+  transition:opacity 0.8s cubic-bezier(.4,0,.2,1), visibility 0.8s;
 }
-#preloader.fade-out{opacity:0;visibility:hidden;pointer-events:none}
+#ssp-preloader.is-hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+#ssp-preloader::before{
+  content:"";
+  position:absolute;
+  inset:-10%;
+  background:radial-gradient(circle at 50% 50%, rgba(212,175,55,0.15), transparent 55%);
+  animation: glowBreathe 6s ease-in-out infinite;
+}
+.ssp-stack{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:24px;
+  text-align:center;
+}
+.ssp-stage-wrap{
+  position:relative;
+  width:var(--stage-size);
+  height:var(--stage-size);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom: 24px;
+}
+.ssp-aura-ring{
+  position:absolute;
+  border-radius:50%;
+  border:2px solid rgba(212,175,55,0.4);
+  opacity:0;
+  animation: auraRipple 3.6s ease-out infinite;
+}
+.ssp-aura-ring.r1{ width:65%; height:65%; animation-delay:0s; }
+.ssp-aura-ring.r2{ width:65%; height:65%; animation-delay:1.2s; border-color:rgba(255,255,255,0.2); }
+.ssp-aura-ring.r3{ width:65%; height:65%; animation-delay:2.4s; }
 
-.pre-circle{
-  width:130px;height:130px;border-radius:50%;
-  background:linear-gradient(135deg,var(--green),var(--blue));
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 0 0 8px rgba(212,175,55,.18),0 0 0 16px rgba(212,175,55,.07);
-  animation:pulse 1.8s ease infinite,fadeIn .6s ease both;
-  margin-bottom:1.4rem;
+.ssp-breathe{
+  width:85%;
+  height:85%;
+  position:relative;
+  animation: breathe 4.2s ease-in-out 2.6s infinite;
+  background: #fff; 
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px rgba(212,175,55,.18), 0 0 0 16px rgba(212,175,55,.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
-.pre-title{font-family:'Mukta',sans-serif;font-size:1.9rem;font-weight:800;color:#fff;letter-spacing:.03em;text-align:center;line-height:1.2;animation:fadeUp .7s .2s ease both;}
-.pre-sub{font-family:'Mukta',sans-serif;font-size:1rem;font-weight:500;color:var(--gold);margin-top:.4rem;text-align:center;animation:fadeUp .7s .38s ease both;}
-.pre-track{width:200px;height:3px;background:rgba(255,255,255,.12);border-radius:99px;margin-top:2rem;overflow:hidden;animation:fadeUp .7s .5s ease both;}
-.pre-fill{background:var(--gold);height:100%;border-radius:99px;animation:loadBar 2.3s .55s ease forwards;width:0}
+.ssp-breathe img{
+  position:absolute;
+  width:80%;
+  height:80%;
+  object-fit:contain;
+  object-position:center;
+}
+.ssp-swami{
+  opacity:0;
+  animation: swamiInOut 2.6s ease forwards;
+}
+.ssp-logo{
+  opacity:0;
+  animation: logoIn 1s ease 2s forwards;
+}
+.ssp-blessing-flash{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,0.95), rgba(212,175,55,0.6) 55%, transparent 75%);
+  opacity:0;
+  animation: blessingFlash 1.2s ease 1.7s forwards;
+}
+.ssp-title{
+  font-family:'Tiro Devanagari Marathi', serif;
+  font-size:clamp(24px, 5vw, 34px);
+  font-weight: 700;
+  color:#ffffff;
+  margin: 0 0 8px 0;
+  opacity:0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  animation: fadeUp .9s ease 2.2s forwards;
+}
+.ssp-tagline{
+  font-family:'Hind', sans-serif;
+  font-size:clamp(14px, 2.5vw, 17px);
+  font-weight: 600;
+  color:var(--gold);
+  margin: 0 0 24px 0;
+  letter-spacing: 0.05em;
+  opacity:0;
+  animation: fadeUp .9s ease 2.4s forwards;
+}
+.ssp-progress-track {
+  width: 220px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 99px;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 2.6s forwards;
+}
+.ssp-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--gold);
+  border-radius: 99px;
+  box-shadow: 0 0 10px rgba(212,175,55,0.8);
+  animation: loadBar 1.8s cubic-bezier(0.4, 0, 0.2, 1) 2.8s forwards;
+}
+
+@keyframes glowBreathe{
+  0%,100%{ opacity:0.5; transform:scale(1); }
+  50%{ opacity:1; transform:scale(1.05); }
+}
+@keyframes auraRipple{
+  0%{ opacity:0; transform:scale(0.85); }
+  25%{ opacity:0.8; }
+  100%{ opacity:0; transform:scale(1.8); }
+}
+@keyframes breathe{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.04); }
+}
+@keyframes swamiInOut{
+  0%{ opacity:0; transform:scale(0.92); }
+  18%{ opacity:1; transform:scale(1); }
+  62%{ opacity:1; transform:scale(1); }
+  100%{ opacity:0; transform:scale(1.08); }
+}
+@keyframes logoIn{
+  0%{ opacity:0; transform:scale(0.88); }
+  100%{ opacity:1; transform:scale(1); }
+}
+@keyframes blessingFlash{
+  0%{ opacity:0; transform:scale(0.7); }
+  40%{ opacity:1; transform:scale(1.25); }
+  100%{ opacity:0; transform:scale(1.8); }
+}
+@keyframes loadBar{
+  0%{ width: 0%; }
+  100%{ width: 100%; }
+}
 
 /* ── Top bar ───────────────────────────────── */
 #topbar{
@@ -426,11 +564,29 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 </head>
 <body>
 
-<div id="preloader">
-  <div class="pre-circle" style="background:#fff;"><img src="ssp-logo.png" alt="SSP Logo" style="width:85%; height:85%; object-fit:contain;"/></div>
-  <div class="pre-title">श्री स्वामी समर्थ परिवार</div>
-  <div class="pre-sub">✦ सहकारातून जनकल्याण ✦</div>
-  <div class="pre-track"><div class="pre-fill"></div></div>
+<div id="ssp-preloader" role="status" aria-live="polite" aria-label="पृष्ठ लोड होत आहे, कृपया प्रतीक्षा करा">
+  <div class="ssp-stack">
+
+    <div class="ssp-stage-wrap">
+      <span class="ssp-aura-ring r1"></span>
+      <span class="ssp-aura-ring r2"></span>
+      <span class="ssp-aura-ring r3"></span>
+      <span class="ssp-blessing-flash"></span>
+      <div class="ssp-breathe">
+        <img class="ssp-swami" src="swami.png" alt="श्री स्वामी समर्थ">
+        <img class="ssp-logo" src="ssp-logo.png" alt="SSP Logo">
+      </div>
+    </div>
+
+    <h1 class="ssp-title">श्री स्वामी समर्थ परिवार</h1>
+    
+    <p class="ssp-tagline">✦ सहकारातून जनकल्याण ✦</p>
+
+    <div class="ssp-progress-track">
+      <div class="ssp-progress-fill"></div>
+    </div>
+
+  </div>
 </div>
 
 <div id="welcomeModal" class="hide">
@@ -641,7 +797,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             </p>
             <div class="grid grid-cols-4 gap-3 mt-6 max-w-lg mx-auto">
               <div class="hero-stat"><div class="num text-white">१२%</div><div class="lbl text-white">कमाल FD दर</div></div>
-              <div class="hero-stat"><div class="num text-white">९ वर्षे</div><div class="lbl text-white">दाम तिप्पट</div></div>
+              <div class="hero-stat"><div class="num text-white">९ वर्षे</div><div class="lbl text-white">दाम तिप्प জ্ঞ</div></div>
               <div class="hero-stat"><div class="num text-white">७८ महिने</div><div class="lbl text-white">दामदुप्पट</div></div>
               <div class="hero-stat"><div class="num text-white">४ वर्षे</div><div class="lbl text-white">दाम दीडपट</div></div>
             </div>
@@ -1158,12 +1314,12 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 // ── Preloader + Welcome flyer ────────────────
 window.addEventListener('load', function(){
   setTimeout(function(){
-    document.getElementById('preloader').classList.add('fade-out');
+    document.getElementById('ssp-preloader').classList.add('is-hidden');
     // Show welcome modal after preloader finishes
     setTimeout(function(){
       document.getElementById('welcomeModal').classList.add('show');
     }, 400);
-  }, 2500); 
+  }, 4800); 
 });
 function closeWelcome(){
   document.getElementById('welcomeModal').classList.remove('show');
