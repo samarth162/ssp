@@ -1,1 +1,621 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>दाम तिप्पट ठेव योजना | श्री स्वामी समर्थ परिवार</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Mukta:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Marathi:ital@0;1&family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ssp: {
+              green:  '#166534',
+              gdark:  '#052e16',
+              gmed:   '#14532d',
+              glight: '#DCFCE7',
+              blue:   '#1E3A8A',
+              bdark:  '#0a0f2e',
+              blight: '#dbeafe',
+              gold:   '#D4AF37',
+              goldl:  '#f5e27a',
+            }
+          },
+          fontFamily: {
+            inter:  ['Inter','sans-serif'],
+            mukta:  ['Mukta','sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Mukta','Inter',sans-serif;color:#1f2937;background:#fff;overflow-x:hidden;}
+
+/* ── CSS variables ─────────────────────────── */
+:root{
+  --green:#166534; --gdark:#052e16; --gmed:#14532d;
+  --blue:#1E3A8A;  --bdark:#0a0f2e;
+  --gold:#D4AF37;  --goldl:#f5e27a;
+  --glight:#DCFCE7;
+}
+
+/* ── Keyframes ─────────────────────────────── */
+@keyframes slideDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+/* ── Top bar ───────────────────────────────── */
+#topbar{
+  background:var(--gdark);color:rgba(255,255,255,.8);
+  font-family:'Mukta',sans-serif;font-size:.85rem;
+  animation:slideDown .4s ease;
+  border-bottom:1px solid rgba(212,175,55,.18);
+}
+#topbar a{color:rgba(255,255,255,.7);transition:color .2s}
+#topbar a:hover{color:var(--gold)}
+.topbar-icon{color:var(--gold);font-size:.75rem;margin-right:.4rem}
+
+/* ── Navbar ────────────────────────────────── */
+#navbar{
+  position:sticky;top:0;z-index:1000;background:#fff;
+  border-bottom:1px solid #e5e7eb;
+  box-shadow:0 2px 16px rgba(22,101,52,.06);
+  animation:slideDown .4s .05s ease both;
+}
+
+#navlinks{
+  display:flex;align-items:center;gap:1.2rem;flex:1 1 auto;
+  flex-wrap:wrap;justify-content:center;
+  padding:.5rem 0;
+}
+
+.nav-item{position:relative;}
+.nav-link{
+  font-family:'Mukta',sans-serif;font-size:.9rem;font-weight:600;
+  color:#374151;padding:.4rem .2rem;display:flex;align-items:center;gap:.25rem;
+  white-space:nowrap;transition:color .2s;cursor:pointer;position:relative;
+}
+.nav-link::after{
+  content:'';position:absolute;left:0;bottom:0;width:0;height:2px;
+  background:var(--green);border-radius:99px;transition:width .25s;
+}
+.nav-link:hover,.nav-link.active{color:var(--green)}
+.nav-link:hover::after{width:100%}
+
+/* Dropdown */
+.dropdown-menu{
+  display:none;position:absolute;top:calc(100% + 4px);left:50%;
+  transform:translateX(-50%);
+  background:#fff;border:1px solid #e5e7eb;border-radius:8px;
+  min-width:240px;padding:.5rem 0;
+  box-shadow:0 12px 40px rgba(0,0,0,.15);z-index:9999;
+  animation:fadeUp .2s ease;
+}
+@media (max-width: 768px) {
+  .dropdown-menu { left: 0; transform: none; }
+}
+
+.nav-item:hover .dropdown-menu,
+.nav-item.touch-open .dropdown-menu { display:block; }
+
+.dropdown-menu a{
+  display:block;padding:.6rem 1.2rem;font-family:'Mukta',sans-serif;
+  font-size:.9rem;color:#374151;transition:all .15s;
+  border-bottom:1px solid #f9fafb;
+}
+.dropdown-menu a:last-child{border-bottom:none;}
+.dropdown-menu a:hover{background:var(--glight);color:var(--green);padding-left:1.5rem}
+
+/* CTA btn */
+.nav-cta-sabhasad{
+  background:linear-gradient(135deg,var(--gold),#b8961e);
+  color:var(--gdark);font-family:'Mukta',sans-serif;font-weight:800;
+  font-size:.9rem;border-radius:6px;padding:.4rem 1rem;
+  box-shadow:0 4px 14px rgba(212,175,55,.35);
+  display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap;
+  transition:background .2s,transform .15s;
+}
+.nav-cta-sabhasad:hover{background:linear-gradient(135deg,#b8961e,#966f0a);transform:translateY(-2px)}
+
+/* ── Section layout helpers ────────────────── */
+.section-eyebrow{
+  font-family:'Mukta',sans-serif;font-size:.85rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--green);
+}
+.section-heading{
+  font-family:'Mukta',sans-serif;
+  font-size:clamp(1.45rem,3vw,2rem);font-weight:800;
+  color:#111827;line-height:1.2;
+}
+.gold-bar{width:48px;height:3px;background:var(--gold);border-radius:99px;margin:.5rem 0 1rem}
+
+/* ── Footer ────────────────────────────────── */
+footer{background:#030f08;font-family:'Mukta',sans-serif}
+.footer-heading{font-family:'Mukta',sans-serif;font-size:1.1rem;font-weight:800;color:var(--gold);margin-bottom:1.2rem;position:relative;padding-bottom:.5rem;}
+.footer-heading::after{content:'absolute;left:0;bottom:0;width:40px;height:2px;background:var(--green);}
+.footer-brand-name{font-family:'Mukta',sans-serif;font-size:1.2rem;font-weight:800;color:#fff;line-height:1.2}
+.footer-motto{font-family:'Mukta',sans-serif;font-size:.85rem;color:var(--gold)}
+footer a.f-link{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:rgba(255,255,255,.6);margin-bottom:.6rem;transition:all .2s;}
+footer a.f-link:hover{color:var(--gold);transform:translateX(4px);}
+footer a.f-link i{font-size:.7rem;color:var(--green);}
+
+.contact-li{display:flex;align-items:flex-start;gap:.8rem;margin-bottom:1rem;}
+.contact-li i{color:var(--gold);font-size:1.1rem;margin-top:.15rem;width:20px;text-align:center;}
+.contact-li .text{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.5;}
+.contact-li .text strong{display:block;color:#fff;font-size:.95rem;margin-bottom:.2rem;}
+
+.social-btn{
+  width:38px;height:38px;border-radius:8px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  display:inline-flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.7);font-size:1rem;
+  transition:all .2s;
+}
+.social-btn:hover{background:var(--green);color:#fff;border-color:var(--green);transform:translateY(-3px);}
+.branch-pill{
+  display:inline-block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  border-radius:99px;padding:.3rem .8rem;font-size:.8rem;color:rgba(255,255,255,.6);margin:.2rem;
+  transition:all .2s;
+}
+.branch-pill:hover{background:rgba(212,175,55,.15);color:var(--gold);border-color:rgba(212,175,55,.3);}
+
+/* ── Floating WhatsApp ─────────────────────── */
+.float-wa{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;
+  width:55px;height:55px;border-radius:50%;background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  color:#fff;font-size:1.6rem;
+  transition:transform .2s;
+}
+.float-wa:hover{transform:scale(1.1)!important}
+
+/* Interactive Calculator Styles */
+.calc-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+.growth-sticker {
+  background: linear-gradient(135deg, #fef3c7, #fff7ed);
+  border: 1px solid #fde68a;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  animation: pulse 2s infinite;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     TOP BAR
+══════════════════════════════════════════ -->
+<div id="topbar">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-y-1">
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-1">
+      <a href="mailto:swamisamarthparivar.info@gmail.com" class="flex items-center">
+        <i class="fa-solid fa-envelope topbar-icon"></i>swamisamarthparivar.info@gmail.com
+      </a>
+      <a href="#" class="flex items-center hidden sm:flex">
+        <i class="fa-solid fa-clock topbar-icon"></i>सोम–शनि सकाळी १० ते सायं ६
+      </a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="http://www.sspseva.com" target="_blank" class="hover:text-yellow-300 transition-colors hidden md:flex items-center text-xs border border-white/20 px-2 py-0.5 rounded"><i class="fa-solid fa-globe mr-1"></i> www.sspseva.com</a>
+      <a href="https://www.facebook.com/profile.php?id=61590878589970" target="_blank" class="hover:text-yellow-300 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://www.instagram.com/swamisamarth.parivar?igsh=MW9rampkZ3ZhYTc5cA==" target="_blank" class="hover:text-yellow-300 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@SwamiSamarthParivaar" target="_blank" class="hover:text-yellow-300 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://whatsapp.com/channel/0029Vb8oHhY1t90YDkpxep32" target="_blank" class="hover:text-yellow-300 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MAIN HEADER (Permanent Title Box)
+══════════════════════════════════════════ -->
+<header class="py-5 mt-2 mb-4 px-4">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 px-6 py-6 bg-ssp-glight border-2 border-ssp-gold rounded-[2rem] shadow-lg">
+    
+    <div class="flex-1 text-center md:text-right">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-ssp-gdark tracking-tight leading-tight" style="font-family:'Mukta',sans-serif;">श्री स्वामी समर्थ<br>सहकारी पतसंस्था</h2>
+      <p class="text-xs md:text-sm font-semibold text-gray-700 mt-2">शाखा: हत्तूर | मंद्रूप | बरूर | जी. परिषद सोलापूर | निंबर्गी | होटगी.</p>
+    </div>
+    
+    <div class="flex-shrink-0 flex flex-col items-center relative my-2 md:my-0">
+      <span class="text-xs md:text-sm font-bold text-ssp-gdark mb-1 md:mb-2">स्वामी समर्थ परिवार संचालित</span>
+      <img src="../ssp-logo.png" alt="SSP Logo" class="w-20 h-20 md:w-28 md:h-28 rounded-full border-4 border-ssp-green shadow-xl object-contain bg-white p-1">
+      <span class="text-xs md:text-sm font-bold text-ssp-blue mt-1 md:mt-2">सहकारातून जनकल्याण</span>
+    </div>
+    
+    <div class="flex-1 text-center md:text-left">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-ssp-gdark tracking-tight leading-tight" style="font-family:'Mukta',sans-serif;">स्वामी समर्थ परिवार अर्बन<br>को.ऑप क्रेडिट सोसायटी लि.</h2>
+      <p class="text-xs md:text-sm font-semibold text-gray-700 mt-2">शाखा: मीरा नगर, सोलापूर | कुमठा नाका, सोलापूर | कलावती नगर, सोलापूर | रेल्वे लाईन्स, सोलापूर.</p>
+    </div>
+    
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     NAVBAR (Sticky)
+══════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="max-w-7xl mx-auto px-3 sm:px-4 py-2.5 flex justify-center">
+
+    <div id="navlinks">
+      <a href="../index.html" class="nav-link">मुख्यपृष्ठ</a>
+
+      <div class="nav-item" onclick="toggleDD(this)">
+        <span class="nav-link">आमच्याबद्दल <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span>
+        <div class="dropdown-menu">
+          <a href="../about-us/about-us.html">संस्थेबद्दल माहिती</a>
+          <a href="../about-us/founder.html">संस्थापक संदेश</a>
+          <a href="../about-us/chairman.html">अध्यक्ष संदेश</a>
+          <a href="../about-us/ceo.html">सीईओ संदेश</a>
+          <a href="../about-us/leadership.html">संचालक मंडळ आणि नेतृत्व</a>
+        </div>
+      </div>
+
+      <div class="nav-item" onclick="toggleDD(this)">
+        <span class="nav-link active">ठेवी <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span>
+        <div class="dropdown-menu">
+          <a href="./fixed-deposit.html">फिक्स्ड डिपॉझिट (FD)</a>
+          <a href="./saving-account.html">बचत खाते (Saving Account)</a>
+          <a href="./damduppat.html">दामदुप्पट ठेव (७८ महिने)</a>
+          <a href="./damdidpat.html">दाम दीडपट ठेव (४ वर्षे)</a>
+          <a href="./damtippat.html" class="font-bold text-ssp-green">दाम तिप्पट ठेव योजना (९ वर्षे)</a>
+          <a href="./lakhpati-yojana.html">लखपती ठेव योजना</a>
+          <a href="./shubhmangal.html">शुभमंगल ठेव योजना</a>
+          <a href="./monthly-pension.html">मासिक पेन्शन ठेव योजना</a>
+          <a href="./rd-scheme.html">आकर्षक आर.डी. ठेव योजना</a>
+        </div>
+      </div>
+
+      <div class="nav-item" onclick="toggleDD(this)">
+        <span class="nav-link">कर्ज <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span>
+        <div class="dropdown-menu">
+          <a href="../loans/home-loan.html">होम लोन</a>
+          <a href="../loans/personal-loan.html">पर्सनल लोन</a>
+          <a href="../loans/vehicle-loan.html">वाहन कर्ज</a>
+          <a href="../loans/gold-loan.html">गोल्ड लोन</a>
+          <a href="../loans/property-loan.html">प्रॉपर्टी मॉर्गेज लोन</a>
+          <a href="../loans/shg-loan.html">बचत गट कर्ज</a>
+          <a href="../loans/business-loan.html">बिझनेस लोन</a>
+        </div>
+      </div>
+
+      <div class="nav-item" onclick="toggleDD(this)">
+        <span class="nav-link">मीडिया <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span>
+        <div class="dropdown-menu">
+          <a href="../media/photo-gallery.html">फोटो गॅलरी</a>
+          <a href="../media/video-gallery.html">व्हिडिओ गॅलरी</a>
+          <a href="../media/blogs.html">ब्लॉग्स आणि बातम्या</a>
+        </div>
+      </div>
+
+      <div class="nav-item" onclick="toggleDD(this)">
+        <span class="nav-link">डाउनलोड्स <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span>
+        <div class="dropdown-menu">
+          <a href="../downloads/reports.html">वार्षिक अहवाल</a>
+        </div>
+      </div>
+
+      <div class="nav-item" onclick="toggleDD(this)">
+        <span class="nav-link">संपर्क <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span>
+        <div class="dropdown-menu">
+          <a href="../contact-us/head-office.html">मुख्य कार्यालय</a>
+          <a href="../contact-us/branches.html">आमच्या शाखा</a>
+        </div>
+      </div>
+
+      <a href="https://forms.gle/KSYJy6avCqkBQYw9A" target="_blank" class="nav-cta-sabhasad ml-2">
+        <i class="fa-solid fa-user-plus"></i> सभासद व्हा
+      </a>
+
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     MAIN SCHEME CONTENT
+══════════════════════════════════════════ -->
+<main class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <p class="section-eyebrow">मुदत ठेव योजना</p>
+      <div class="gold-bar mx-auto"></div>
+      <h2 class="section-heading mb-4 text-3xl md:text-4xl text-ssp-blue">दाम तिप्पट ठेव योजना (९ वर्षे)</h2>
+      <p class="max-w-2xl mx-auto text-gray-600 font-medium">९ वर्षांच्या कालावधीत तुमची ठेव रक्कम तिप्पट मिळवा. एक उत्तम आणि सुरक्षित गुंतवणूक पर्याय.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      
+      <!-- LEFT COLUMN: Calculator & Stickers (5/12 grid) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Interactive FD Calculator -->
+        <div class="calc-card">
+          <h3 class="text-xl font-bold text-ssp-gdark mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-calculator text-ssp-green"></i> अंदाजपत्रक कॅल्क्युलेटर
+          </h3>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-gray-700 font-bold mb-1.5">ठेव रक्कम (₹):</label>
+              <input type="number" id="depositAmount" value="10000" min="1000" step="1000" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ssp-green font-bold text-lg text-ssp-blue" oninput="calculateMaturity()"/>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 bg-gray-50 p-3 rounded-lg border border-gray-100 text-sm font-semibold text-gray-600">
+              <div><i class="fa-solid fa-calendar-days mr-1 text-ssp-green"></i> कालावधी: <span class="block text-ssp-gdark font-bold text-base">९ वर्षे (१०८ महिने)</span></div>
+              <div><i class="fa-solid fa-chart-pie mr-1 text-ssp-green"></i> परतावा: <span class="block text-ssp-gdark font-bold text-base">३००% (तिप्पट)</span></div>
+            </div>
+
+            <div class="pt-4 border-t border-gray-100">
+              <div class="text-sm font-bold text-gray-500 uppercase tracking-wider">अंदाजित मॅच्युरिटी रक्कम:</div>
+              <div class="text-3xl font-black text-emerald-600 mt-1" id="maturityValue">₹३०,०००</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Growth Sticker Graphic -->
+        <div class="growth-sticker">
+          <div class="text-3xl text-amber-500"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div>
+            <h4 class="font-bold text-ssp-gdark text-base">दीर्घकालीन सुरक्षित गुंतवणूक</h4>
+            <p class="text-xs text-gray-600 font-semibold mt-0.5">९ वर्षांत तुमचा पैसा निर्धोकपणे आणि खात्रीने तिप्पट करा.</p>
+          </div>
+        </div>
+
+        <!-- Required Documents Box -->
+        <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+          <h3 class="text-lg font-bold text-ssp-gdark mb-4 flex items-center gap-2 border-b border-gray-100 pb-2">
+            <i class="fa-solid fa-file-invoice text-ssp-gold"></i> आवश्यक कागदपत्रे (KYC)
+          </h3>
+          <ul class="space-y-3 text-gray-700 text-sm font-semibold">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ssp-green"></i> २ पासपोर्ट आकाराचे फोटो</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ssp-green"></i> आधार कार्ड (Aadhaar Card)</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ssp-green"></i> पॅन कार्ड (PAN Card)</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ssp-green"></i> रहिवासी पुरावा (लाइट बिल / रेशन कार्ड)</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Scheme Info & Call to Action (7/12 grid) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 space-y-6">
+          <h3 class="text-2xl font-bold text-ssp-gdark">योजनेची सविस्तर माहिती</h3>
+          
+          <p class="text-gray-700 text-lg leading-relaxed">
+            श्री स्वामी समर्थ परिवार संचलित <strong>'दाम तिप्पट ठेव योजना'</strong> ही दीर्घकालीन उद्दिष्टांसाठी एक अत्यंत सुरक्षित आणि फायदेशीर गुंतवणूक योजना आहे. या योजनेत तुम्ही गुंतवलेली रक्कम केवळ ९ वर्षांच्या (१०८ महिने) कालावधीत चक्रवाढ व्याजाच्या दराने थेट तिप्पट होते.
+          </p>
+
+          <div class="border-l-4 border-ssp-green bg-ssp-glight/40 p-4 rounded-r-xl">
+            <h4 class="font-bold text-ssp-gdark text-lg mb-1">९ वर्षांचा (१०८ महिने) निश्चित कालावधी</h4>
+            <p class="text-gray-600 text-sm font-medium">निवृत्तीचे नियोजन, मुलांचे उच्च शिक्षण किंवा भविष्यातील मोठ्या आर्थिक गरजांसाठी ही योजना उत्तम आहे, जिथे तुम्हाला ३००% परताव्याची हमी मिळते.</p>
+          </div>
+
+          <h4 class="text-xl font-bold text-ssp-gdark pt-2"><i class="fa-solid fa-star text-ssp-gold mr-1"></i> प्रमुख वैशिष्ट्ये आणि नियम:</h4>
+          <ul class="space-y-3 text-gray-700 text-base font-medium pl-2">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-ssp-green mt-1.5 text-xs flex-shrink-0"></i> <span>किमान ₹१,००० किंवा त्याच्या पटीत गुंतवणूक करता येईल.</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-ssp-green mt-1.5 text-xs flex-shrink-0"></i> <span>ठेव रक्कम ९ वर्षे (१०८ महिने) पूर्ण झाल्यावर खात्रीशीर तिप्पट मिळते.</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-ssp-green mt-1.5 text-xs flex-shrink-0"></i> <span>वरिष्ठ नागरिक, अपंग आणि गरजू व्यक्तींसाठी विशेष प्राधान्य.</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-ssp-green mt-1.5 text-xs flex-shrink-0"></i> <span>तातडीच्या गरजेसाठी ठेवीवर कर्ज मिळण्याची सुलभ सुविधा उपलब्ध आहे.</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-ssp-green mt-1.5 text-xs flex-shrink-0"></i> <span>संस्थेचे ऑडिट सातत्याने 'वर्ग अ' मध्ये असून सर्व ठेवी पूर्णपणे सुरक्षित आहेत.</span></li>
+          </ul>
+
+          <div class="pt-4">
+            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%A6%E0%A4%BE%E0%A4%AE%20%E0%A4%A4%E0%A4%BF%E0%A4%AA%E0%A5%8D%E0%A4%AA%E0%A4%9F%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-ssp-green hover:bg-ssp-gdark text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all text-base gap-2">
+              <i class="fa-brands fa-whatsapp text-xl"></i> अधिक माहितीसाठी संपर्क करा
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- BOTTOM IMAGE PLACEHOLDER -->
+    <div class="mt-12">
+      <img src="../images/damtippat.jpg" alt="दाम तिप्पट ठेव योजना" class="w-full h-[320px] md:h-[450px] rounded-2xl shadow-lg object-cover border border-gray-200"/>
+    </div>
+
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="pt-16 pb-6 px-4 bg-ssp-gdark border-t-4 border-ssp-gold">
+  <div class="max-w-7xl mx-auto text-white">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 border-b border-white/10 pb-12">
+
+      <!-- Brand col -->
+      <div>
+        <div class="flex items-center gap-3 mb-5">
+          <img src="../ssp-logo.png" alt="SSP Logo" style="width:48px;height:48px;border-radius:50%;object-fit:contain;background:#fff;padding:3px;flex-shrink:0;" />
+          <div>
+            <div class="footer-brand-name">श्री स्वामी समर्थ परिवार</div>
+            <div class="footer-motto">सहकारातून जनकल्याण</div>
+          </div>
+        </div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:1.5rem">
+          महाराष्ट्र सहकारी संस्था कायदा १९६० अंतर्गत नोंदणीकृत.<br>
+          २५ वर्षे सेवा — विश्वास आणि सहकारातून समृद्धी.
+        </p>
+        <div class="flex gap-3 flex-wrap">
+          <a href="https://www.facebook.com/profile.php?id=61590878589970" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/swamisamarth.parivar?igsh=MW9rampkZ3ZhYTc5cA==" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@SwamiSamarthParivaar" target="_blank" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029Vb8oHhY1t90YDkpxep32" target="_blank" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        
+        <!-- Call Any Time -->
+        <div class="mt-6">
+          <div style="font-size:1.2rem; font-weight:800; color:var(--gold);"><i class="fa-solid fa-phone mr-2"></i> ९३७३७१६८१६</div>
+          <div style="font-size:0.85rem; color:rgba(255,255,255,0.6); margin-top:2px;">Call any time</div>
+        </div>
+
+        <!-- App Download -->
+        <div class="mt-8">
+          <h4 style="font-family:'Mukta',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">आमचे ॲप डाउनलोड करा</h4>
+          <a href="#" class="inline-flex items-center gap-3 bg-black border border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-900 transition-colors shadow-lg">
+            <i class="fa-brands fa-google-play text-2xl text-green-400"></i>
+            <div class="text-left">
+              <div class="text-[0.65rem] leading-none text-gray-300 uppercase tracking-wider mb-0.5">Get it on</div>
+              <div class="text-sm font-bold leading-none text-white">Google Play</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Explore -->
+      <div>
+        <h4 class="footer-heading">क्विक लिंक्स</h4>
+        <a href="../index.html" class="f-link"><i class="fa-solid fa-chevron-right"></i> मुख्यपृष्ठ</a>
+        <a href="./fixed-deposit.html" class="f-link"><i class="fa-solid fa-chevron-right"></i> मुदत ठेव योजना</a>
+        <a href="../loans/vehicle-loan.html" class="f-link"><i class="fa-solid fa-chevron-right"></i> कर्ज सेवा</a>
+        <a href="https://forms.gle/KSYJy6avCqkBQYw9A" target="_blank" class="f-link"><i class="fa-solid fa-chevron-right"></i> सभासद व्हा</a>
+        <a href="../contact-us/head-office.html" class="f-link"><i class="fa-solid fa-chevron-right"></i> आमच्याशी संपर्क साधा</a>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="footer-heading">संपर्क माहिती</h4>
+        <div class="contact-li">
+          <i class="fa-solid fa-location-dot"></i>
+          <div class="text">
+            <strong>मुख्य कार्यालय:</strong>
+            १३१ अ, सिद्धेश्वर पेठ,<br>जिल्हा परिषद समोर, सोलापूर
+          </div>
+        </div>
+        <div class="contact-li">
+          <i class="fa-solid fa-phone"></i>
+          <div class="text">
+            <strong>फोन:</strong>
+            ९३७३७१६८१६<br>९२८४६२४७२३<br>९९२१६५९८७१
+          </div>
+        </div>
+        <div class="contact-li">
+          <i class="fa-solid fa-globe"></i>
+          <div class="text">
+            <strong>वेबसाइट:</strong>
+            www.sspseva.com
+          </div>
+        </div>
+        <div class="contact-li">
+          <i class="fa-solid fa-envelope"></i>
+          <div class="text">
+            <strong>ईमेल:</strong>
+            swamisamarthparivar.info@gmail.com
+          </div>
+        </div>
+      </div>
+
+      <!-- Branches & Map -->
+      <div>
+        <h4 class="footer-heading">आमच्या शाखा</h4>
+        <div style="margin-bottom:1rem;">
+          <div style="font-family:'Mukta',sans-serif;font-size:.9rem;font-weight:700;color:var(--gold);margin-bottom:.3rem;">ग्रामीण पतसंस्था:</div>
+          <span class="branch-pill">हत्तूर</span>
+          <span class="branch-pill">मंद्रूप</span>
+          <span class="branch-pill">बरूर</span>
+          <span class="branch-pill">जी. परिषद सोलापूर</span>
+          <span class="branch-pill">निंबर्गी</span>
+          <span class="branch-pill">होटगी</span>
+        </div>
+        <div>
+          <div style="font-family:'Mukta',sans-serif;font-size:.9rem;font-weight:700;color:var(--gold);margin-bottom:.3rem;">अर्बन पतसंस्था:</div>
+          <span class="branch-pill">मीरा नगर</span>
+          <span class="branch-pill">कुमठा नाका</span>
+          <span class="branch-pill">कलावती नगर</span>
+          <span class="branch-pill">रेल्वे लाईन्स</span>
+        </div>
+        
+        <!-- Map Embed -->
+        <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.08); margin-top: 1rem;">
+          <iframe src="https://maps.google.com/maps?q=17.669806,75.908222&hl=mr&z=15&output=embed" width="100%" height="160" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-6">
+      <p class="text-sm text-white/50 text-center md:text-left">
+        © २०२६ श्री स्वामी समर्थ परिवार. सर्व हक्क राखीव.
+      </p>
+      
+      <div class="flex gap-4 justify-center">
+        <a href="#" class="text-sm text-white/50 hover:text-white transition">गोपनीयता धोरण</a>
+        <a href="#" class="text-sm text-white/50 hover:text-white transition">नियम आणि अटी</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/919373716816" target="_blank" class="float-wa" title="WhatsApp वर संपर्क करा">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════ -->
+<script>
+// ── Nav dropdown toggle ──────────────────────
+function toggleDD(el){
+  var open = el.classList.contains('touch-open');
+  document.querySelectorAll('.nav-item.touch-open').forEach(function(n){ n.classList.remove('touch-open'); });
+  if(!open) el.classList.add('touch-open');
+}
+document.addEventListener('click', function(e){
+  if(!e.target.closest('.nav-item')){
+    document.querySelectorAll('.nav-item.touch-open').forEach(function(n){ n.classList.remove('touch-open'); });
+  }
+});
+
+// ── Navbar scroll shadow ────────────────────
+window.addEventListener('scroll', function(){
+  var nb = document.getElementById('navbar');
+  nb.style.boxShadow = window.scrollY > 30 ? '0 4px 24px rgba(22,101,52,.14)' : '0 2px 16px rgba(22,101,52,.06)';
+});
+
+// ── Interactive Dam Tippat Calculator ───────
+function formatMarathiWithCommas(num) {
+  let strNum = num.toLocaleString('en-IN'); 
+  const digits = ['०','१','२','३','४','५','६','७','८','९'];
+  return strNum.split('').map(d => digits[d] || d).join('');
+}
+
+function calculateMaturity() {
+  const amtInput = document.getElementById('depositAmount').value;
+  const maturityEl = document.getElementById('maturityValue');
+  
+  if(amtInput && amtInput >= 0) {
+    // Dam Tippat multiplies the value by 3
+    const maturityAmount = parseFloat(amtInput) * 3;
+    maturityEl.textContent = '₹' + formatMarathiWithCommas(maturityAmount);
+  } else {
+    maturityEl.textContent = '₹०';
+  }
+}
+</script>
+
+</body>
+</html>
