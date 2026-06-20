@@ -203,6 +203,17 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 .scheme-table th { background-color: var(--glight); color: var(--gdark); font-weight: 800; border-bottom: 2px solid var(--green); }
 .scheme-table td { border-bottom: 1px solid #f3f4f6; color: #4b5563; font-weight: 600; }
 .scheme-table tr:hover td { background-color: #f8fafc; }
+
+/* Hidden utility */
+.hidden { display: none !important; }
+
+/* Radio Button Design */
+.radio-group { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+.radio-label {
+  display: flex; align-items: center; gap: 0.5rem; cursor: pointer;
+  font-family: 'Mukta', sans-serif; font-weight: 700; color: var(--gdark);
+}
+.radio-label input[type="radio"] { accent-color: var(--green); transform: scale(1.2); }
 </style>
 </head>
 <body>
@@ -231,32 +242,28 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 </div>
 
 <!-- ══════════════════════════════════════════
-     MAIN HEADER (Permanent Title Box)
+     MAIN HEADER
 ══════════════════════════════════════════ -->
 <header class="py-5 mt-2 mb-4 px-4">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 px-6 py-6 bg-ssp-glight border-2 border-ssp-gold rounded-[2rem] shadow-lg">
-    
     <div class="flex-1 text-center md:text-right">
       <h2 class="text-2xl md:text-3xl font-extrabold text-ssp-gdark tracking-tight leading-tight" style="font-family:'Mukta',sans-serif;">श्री स्वामी समर्थ<br>सहकारी पतसंस्था</h2>
       <p class="text-xs md:text-sm font-semibold text-gray-700 mt-2">शाखा: हत्तूर | मंद्रूप | बरूर | जी. परिषद सोलापूर | निंबर्गी | होटगी.</p>
     </div>
-    
     <div class="flex-shrink-0 flex flex-col items-center relative my-2 md:my-0">
       <span class="text-xs md:text-sm font-bold text-ssp-gdark mb-1 md:mb-2">स्वामी समर्थ परिवार संचालित</span>
       <img src="../ssp-logo.png" alt="SSP Logo" class="w-20 h-20 md:w-28 md:h-28 rounded-full border-4 border-ssp-green shadow-xl object-contain bg-white p-1">
       <span class="text-xs md:text-sm font-bold text-ssp-blue mt-1 md:mt-2">सहकारातून जनकल्याण</span>
     </div>
-    
     <div class="flex-1 text-center md:text-left">
       <h2 class="text-2xl md:text-3xl font-extrabold text-ssp-gdark tracking-tight leading-tight" style="font-family:'Mukta',sans-serif;">स्वामी समर्थ परिवार अर्बन<br>को.ऑप क्रेडिट सोसायटी लि.</h2>
       <p class="text-xs md:text-sm font-semibold text-gray-700 mt-2">शाखा: मीरा नगर, सोलापूर | कुमठा नाका, सोलापूर | कलावती नगर, सोलापूर | रेल्वे लाईन्स, सोलापूर.</p>
     </div>
-    
   </div>
 </header>
 
 <!-- ══════════════════════════════════════════
-     NAVBAR (Sticky)
+     NAVBAR
 ══════════════════════════════════════════ -->
 <nav id="navbar">
   <div class="max-w-7xl mx-auto px-3 sm:px-4 py-2.5 flex justify-center">
@@ -308,7 +315,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
         <div class="dropdown-menu">
           <a href="../media/photo-gallery.html">फोटो गॅलरी</a>
           <a href="../media/video-gallery.html">व्हिडिओ गॅलरी</a>
-          <a href="../media/blogs.html">ब्लॉग्स আসতে बातम्या</a>
+          <a href="../media/blogs.html">ब्लॉग्स आणि बातम्या</a>
         </div>
       </div>
 
@@ -342,45 +349,81 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="text-center mb-12">
-      <p class="section-eyebrow">मासिक बचत योजना</p>
+      <p class="section-eyebrow">मुदत आणि आवर्तक बचत</p>
       <div class="gold-bar mx-auto"></div>
       <h2 class="section-heading mb-4 text-3xl md:text-4xl text-ssp-blue">लखपती ठेव योजना</h2>
-      <p class="max-w-2xl mx-auto text-gray-600 font-medium">लखपती होण्याचे स्वप्न आता अगदी सोपे! दरमहा छोटी रक्कम गुंतवा आणि ठरलेल्या मुदतीनंतर १ लाखांहून अधिक रक्कम मिळवा.</p>
+      <p class="max-w-2xl mx-auto text-gray-600 font-medium">तुमचे 'लखपती' होण्याचे स्वप्न आता अगदी सोपे! एकरकमी किंवा दरमहा छोटी बचत करा आणि खात्रीशीर परतावा मिळवा.</p>
     </div>
 
     <div class="grid lg:grid-cols-12 gap-10 items-start">
       
-      <!-- LEFT COLUMN: Calculator & Stickers (5/12 grid) -->
+      <!-- LEFT COLUMN: Calculator & Stickers & Docs (5/12 grid) -->
       <div class="lg:col-span-5 space-y-6">
         
         <!-- Interactive Lakhpati Calculator -->
         <div class="calc-card border-t-4 border-ssp-gold">
           <h3 class="text-xl font-bold text-ssp-gdark mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-bullseye text-ssp-green"></i> मासिक गुंतवणूक कॅल्क्युलेटर
+            <i class="fa-solid fa-bullseye text-ssp-green"></i> लखपती कॅल्क्युलेटर
           </h3>
-          <div class="space-y-4">
+          
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="calcType" value="lumpsum" checked onchange="toggleCalcType()"> एकरकमी (Lump Sum)
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="calcType" value="rd" onchange="toggleCalcType()"> मासिक (R.D.)
+            </label>
+          </div>
+
+          <!-- Lumpsum Section -->
+          <div id="lumpsumSection" class="space-y-4">
             <div>
-              <label class="block text-gray-700 font-bold mb-1.5">तुमचा मासिक हप्ता निवडा:</label>
-              <select id="monthlyInstallment" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-ssp-green font-bold text-lg text-ssp-blue" onchange="calculateLakhpati()">
-                <option value="1000">₹ १,००० प्रति महिना</option>
-                <option value="1300">₹ १,३०० प्रति महिना</option>
-                <option value="1700">₹ १,७०० प्रति महिना</option>
-                <option value="2400">₹ २,४०० प्रति महिना</option>
-                <option value="3800">₹ ३,८०० प्रति महिना</option>
-                <option value="8000">₹ ८,००० प्रति महिना</option>
+              <label class="block text-gray-700 font-bold mb-1.5">तुमचा प्लॅन निवडा:</label>
+              <select id="lsOption" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-ssp-green font-bold text-base text-ssp-blue" onchange="calcLumpSum()">
+                <option value='{"dep":36000, "tenure":"१० वर्षे", "mat":100000}'>₹३६,००० भरा - १० वर्षांनी ₹१ लाख</option>
+                <option value='{"dep":40000, "tenure":"१० वर्षे", "mat":100000}'>₹४०,००० भरा - १० वर्षांनी ₹१ लाख</option>
+                <option value='{"dep":72000, "tenure":"५ वर्षे", "mat":100000}'>₹७२,००० भरा - ५ वर्षांनी ₹१ लाख</option>
+                <option value='{"dep":32000, "tenure":"५ वर्षे", "mat":50000}'>₹३२,००० भरा - ५ वर्षांनी ₹५०,०००</option>
+                <option value='{"dep":20000, "tenure":"१० वर्षे", "mat":50000}'>₹२०,००० भरा - १० वर्षांनी ₹५०,०००</option>
+                <option value='{"dep":18000, "tenure":"१० वर्षे", "mat":50000}'>₹१८,००० भरा - १० वर्षांनी ₹५०,०००</option>
               </select>
             </div>
             
             <div class="grid grid-cols-2 gap-4 bg-gray-50 p-3 rounded-lg border border-gray-100 text-sm font-semibold text-gray-600">
-              <div><i class="fa-solid fa-calendar-days mr-1 text-ssp-green"></i> मुदत: <span id="calcMonths" class="block text-ssp-gdark font-bold text-base">७८ महिने</span></div>
-              <div><i class="fa-solid fa-piggy-bank mr-1 text-ssp-green"></i> एकूण जमा: <span id="calcDeposit" class="block text-ssp-gdark font-bold text-base">₹७८,०००</span></div>
+              <div><i class="fa-solid fa-calendar-days mr-1 text-ssp-green"></i> कालावधी: <span id="lsTenure" class="block text-ssp-gdark font-bold text-base">१० वर्षे</span></div>
+              <div><i class="fa-solid fa-wallet mr-1 text-ssp-green"></i> एकरकमी ठेव: <span id="lsDeposit" class="block text-ssp-gdark font-bold text-base">₹३६,०००</span></div>
             </div>
 
             <div class="pt-4 border-t border-gray-100">
               <div class="text-sm font-bold text-gray-500 uppercase tracking-wider">मुदतीअंती मिळणारी रक्कम:</div>
-              <div class="text-3xl font-black text-emerald-600 mt-1" id="calcMaturity">₹१,१०,१५७</div>
+              <div class="text-3xl font-black text-emerald-600 mt-1" id="lsMaturity">₹१,००,०००</div>
             </div>
           </div>
+
+          <!-- RD Section (Hidden by default) -->
+          <div id="rdSection" class="space-y-4 hidden">
+            <div>
+              <label class="block text-gray-700 font-bold mb-1.5">तुमचा प्लॅन निवडा (₹१ लाखासाठी):</label>
+              <select id="rdOption" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-ssp-green font-bold text-base text-ssp-blue" onchange="calcRD()">
+                <option value='{"inst":1340, "tenure":"५ वर्षे", "dep":80400}'>५ वर्षे - ₹१,३४० प्रति महिना</option>
+                <option value='{"inst":1640, "tenure":"४ वर्षे", "dep":78720}'>४ वर्षे - ₹१,६४० प्रति महिना</option>
+                <option value='{"inst":2340, "tenure":"३ वर्षे", "dep":84240}'>३ वर्षे - ₹२,३४० प्रति महिना</option>
+                <option value='{"inst":3725, "tenure":"२ वर्षे", "dep":89400}'>२ वर्षे - ₹३,७२५ प्रति महिना</option>
+                <option value='{"inst":7850, "tenure":"१ वर्ष", "dep":94200}'>१ वर्ष - ₹७,८५० प्रति महिना</option>
+              </select>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 bg-gray-50 p-3 rounded-lg border border-gray-100 text-sm font-semibold text-gray-600">
+              <div><i class="fa-solid fa-calendar-days mr-1 text-ssp-green"></i> कालावधी: <span id="rdTenure" class="block text-ssp-gdark font-bold text-base">५ वर्षे</span></div>
+              <div><i class="fa-solid fa-piggy-bank mr-1 text-ssp-green"></i> एकूण जमा: <span id="rdDeposit" class="block text-ssp-gdark font-bold text-base">₹८०,४००</span></div>
+            </div>
+
+            <div class="pt-4 border-t border-gray-100">
+              <div class="text-sm font-bold text-gray-500 uppercase tracking-wider">मुदतीअंती मिळणारी रक्कम:</div>
+              <div class="text-3xl font-black text-emerald-600 mt-1" id="rdMaturity2">₹१,००,०००</div>
+            </div>
+          </div>
+
         </div>
 
         <!-- Growth Sticker Graphic -->
@@ -388,7 +431,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
           <div class="text-3xl text-amber-500"><i class="fa-solid fa-gem"></i></div>
           <div>
             <h4 class="font-bold text-ssp-gdark text-base">निश्चित उद्दिष्ट, सुरक्षित भविष्य</h4>
-            <p class="text-xs text-gray-600 font-semibold mt-0.5">थेंबे थेंबे तळे साचे! तुमच्या क्षमतेनुसार दरमहा बचत करा आणि लखपती व्हा.</p>
+            <p class="text-xs text-gray-600 font-semibold mt-0.5">तुमच्या क्षमतेनुसार गुंतवणूक करा आणि ठरलेल्या मुदतीत लखपती व्हा.</p>
           </div>
         </div>
 
@@ -401,7 +444,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ssp-green"></i> २ पासपोर्ट आकाराचे फोटो</li>
             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ssp-green"></i> आधार कार्ड (Aadhaar Card)</li>
             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ssp-green"></i> पॅन कार्ड (PAN Card)</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ssp-green"></i> रहिवासी पुरावा (लाइट बिल / रेशन कार्ड)</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-ssp-green"></i> रहिवासी पुरावा (उदा. लाइट बिल / रेशन कार्ड)</li>
           </ul>
         </div>
 
@@ -414,70 +457,119 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
           <h3 class="text-2xl font-bold text-ssp-gdark">योजनेची सविस्तर माहिती</h3>
           
           <p class="text-gray-700 text-lg leading-relaxed">
-            प्रत्येक सामान्य माणसाचे 'लखपती' होण्याचे स्वप्न असते. श्री स्वामी समर्थ परिवार संचलित <strong>'लखपती ठेव योजना'</strong> हेच स्वप्न सुरक्षित आणि खात्रीशीररीत्या पूर्ण करते. या योजनेत तुम्ही तुमच्या आर्थिक क्षमतेनुसार दरमहा छोटी रक्कम गुंतवून मुदतीअंती 'एक लाख' किंवा त्यापेक्षा जास्त रकमेचे उद्दिष्ट सहज गाठू शकता.
+            श्री स्वामी समर्थ परिवार पतसंस्थेची <strong>'लखपती ठेव योजना'</strong> ही तुमचे आर्थिक स्वप्न पूर्ण करण्यासाठी डिझाइन केलेली एक अत्यंत लोकप्रिय योजना आहे. या योजनेत तुम्हाला दोन सुलभ पर्याय उपलब्ध आहेत: तुम्ही <strong>एकरकमी (Lump Sum)</strong> गुंतवणूक करू शकता किंवा <strong>मासिक आवर्तक (Recurring Deposit)</strong> द्वारे दरमहा छोटी रक्कम वाचवू शकता.
           </p>
 
-          <!-- Table implementation based on user data -->
-          <div class="overflow-x-auto my-6 border border-gray-200 rounded-xl shadow-sm">
+          <!-- 1. Lump Sum Table -->
+          <h4 class="text-xl font-bold text-ssp-gdark mt-8 border-b-2 border-ssp-green inline-block pb-1">१. एकरकमी लखपती ठेव योजना</h4>
+          <p class="text-gray-600 text-sm font-medium mt-2">एकदाच ठराविक रक्कम जमा करा आणि मुदतीअंती ५० हजार किंवा १ लाख रुपये मिळवा.</p>
+          
+          <div class="overflow-x-auto mt-4 border border-gray-200 rounded-xl shadow-sm">
             <table class="w-full text-left border-collapse scheme-table text-sm sm:text-base">
               <thead>
                 <tr>
-                  <th class="px-4 py-3">प्रत्येक महिन्याला</th>
-                  <th class="px-4 py-3 text-center">महिने</th>
-                  <th class="px-4 py-3">एकूण संचय (जमा)</th>
-                  <th class="px-4 py-3 text-ssp-blue">देय तारखेनंतर मिळणारी रक्कम</th>
+                  <th class="px-4 py-3">एकरकमी भरायची रक्कम</th>
+                  <th class="px-4 py-3 text-center">कालावधी</th>
+                  <th class="px-4 py-3 text-ssp-blue">मुदतीअंती मिळणारी रक्कम</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹१,०००/-</td>
-                  <td class="px-4 py-3 text-center">७८ महिने</td>
-                  <td class="px-4 py-3">₹७८,०००/-</td>
-                  <td class="px-4 py-3 font-bold text-ssp-blue">₹१,१०,१५७/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ ३६,०००/-</td>
+                  <td class="px-4 py-3 text-center">१० वर्षे</td>
+                  <td class="px-4 py-3 font-bold text-ssp-blue">₹ १,००,०००/-</td>
                 </tr>
                 <tr>
-                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹१,३००/-</td>
-                  <td class="px-4 py-3 text-center">६० महिने</td>
-                  <td class="px-4 py-3">₹७८,०००/-</td>
-                  <td class="px-4 py-3 font-bold text-ssp-blue">₹१,०१,२८०/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ ७२,०००/-</td>
+                  <td class="px-4 py-3 text-center">५ वर्षे</td>
+                  <td class="px-4 py-3 font-bold text-ssp-blue">₹ १,००,०००/-</td>
                 </tr>
                 <tr>
-                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹१,७००/-</td>
-                  <td class="px-4 py-3 text-center">४८ महिने</td>
-                  <td class="px-4 py-3">₹८१,६००/-</td>
-                  <td class="px-4 py-3 font-bold text-ssp-blue">₹१,००,४८२/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ ४०,०००/-</td>
+                  <td class="px-4 py-3 text-center">१० वर्षे</td>
+                  <td class="px-4 py-3 font-bold text-ssp-blue">₹ १,००,०००/-</td>
                 </tr>
                 <tr>
-                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹२,४००/-</td>
-                  <td class="px-4 py-3 text-center">३६ महिने</td>
-                  <td class="px-4 py-3">₹८६,४००/-</td>
-                  <td class="px-4 py-3 font-bold text-ssp-blue">₹१,००,९७९/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ ३२,०००/-</td>
+                  <td class="px-4 py-3 text-center">५ वर्षे</td>
+                  <td class="px-4 py-3 font-bold text-ssp-green">₹ ५०,०००/-</td>
                 </tr>
                 <tr>
-                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹३,८००/-</td>
-                  <td class="px-4 py-3 text-center">२४ महिने</td>
-                  <td class="px-4 py-3">₹९१,२००/-</td>
-                  <td class="px-4 py-3 font-bold text-ssp-blue">₹१,०१,२४७/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ २०,०००/-</td>
+                  <td class="px-4 py-3 text-center">१० वर्षे</td>
+                  <td class="px-4 py-3 font-bold text-ssp-green">₹ ५०,०००/-</td>
                 </tr>
                 <tr>
-                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹८,०००/-</td>
-                  <td class="px-4 py-3 text-center">१२ महिने</td>
-                  <td class="px-4 py-3">₹९६,०००/-</td>
-                  <td class="px-4 py-3 font-bold text-ssp-blue">₹१,०१,२००/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ १८,०००/-</td>
+                  <td class="px-4 py-3 text-center">१० वर्षे</td>
+                  <td class="px-4 py-3 font-bold text-ssp-green">₹ ५०,०००/-</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <h4 class="text-xl font-bold text-ssp-gdark pt-2"><i class="fa-solid fa-star text-ssp-gold mr-1"></i> प्रमुख वैशिष्ट्ये आणि नियम:</h4>
-          <ul class="space-y-3 text-gray-700 text-base font-medium pl-2">
-            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-ssp-green mt-1.5 text-xs flex-shrink-0"></i> <span>शेतकरी, छोटे व्यावसायिक आणि नोकरदार वर्गासाठी अत्यंत उपयुक्त आणि लवचिक योजना.</span></li>
-            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-ssp-green mt-1.5 text-xs flex-shrink-0"></i> <span>तुम्ही तुमच्या आवडीनुसार आणि क्षमतेनुसार १२ महिने ते ७८ महिन्यांपर्यंतचा कालावधी निवडू शकता.</span></li>
-            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-ssp-green mt-1.5 text-xs flex-shrink-0"></i> <span>तातडीच्या आर्थिक गरजेसाठी जमा रकमेवर सुलभ कर्ज मिळण्याची सोय उपलब्ध आहे.</span></li>
-            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-ssp-green mt-1.5 text-xs flex-shrink-0"></i> <span>संस्थेचे ऑडिट सातत्याने 'वर्ग अ' मध्ये असल्याने तुमचा पैसा १००% सुरक्षित आहे.</span></li>
-          </ul>
+          <!-- 2. RD Table -->
+          <h4 class="text-xl font-bold text-ssp-gdark mt-10 border-b-2 border-ssp-green inline-block pb-1">२. लखपती आवर्तक (R.D.) ठेव योजना</h4>
+          <p class="text-gray-600 text-sm font-medium mt-2">तुमच्या क्षमतेनुसार दरमहा ठराविक रक्कम जमा करा आणि १ लाख रुपयांचे उद्दिष्ट पूर्ण करा.</p>
 
-          <div class="pt-4">
+          <div class="overflow-x-auto mt-4 border border-gray-200 rounded-xl shadow-sm">
+            <table class="w-full text-left border-collapse scheme-table text-sm sm:text-base">
+              <thead>
+                <tr>
+                  <th class="px-4 py-3 text-center">कालावधी</th>
+                  <th class="px-4 py-3">मासिक हप्ता</th>
+                  <th class="px-4 py-3">एकूण जमा रक्कम</th>
+                  <th class="px-4 py-3 text-ssp-blue">मिळणारी रक्कम</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="px-4 py-3 text-center font-semibold">१ वर्ष</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ ७,८५०/-</td>
+                  <td class="px-4 py-3">₹ ९४,२००/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-blue">₹ १,००,०००/-</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 text-center font-semibold">२ वर्षे</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ ३,७२५/-</td>
+                  <td class="px-4 py-3">₹ ८९,४००/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-blue">₹ १,००,०००/-</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 text-center font-semibold">३ वर्षे</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ २,३४०/-</td>
+                  <td class="px-4 py-3">₹ ८४,२४०/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-blue">₹ १,००,०००/-</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 text-center font-semibold">४ वर्षे</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ १,६४०/-</td>
+                  <td class="px-4 py-3">₹ ७८,७२०/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-blue">₹ १,००,०००/-</td>
+                </tr>
+                <tr class="bg-ssp-glight/30">
+                  <td class="px-4 py-3 text-center font-bold text-ssp-green">५ वर्षे</td>
+                  <td class="px-4 py-3 font-bold text-ssp-green">₹ १,३४०/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-green">₹ ८०,४००/-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-blue">₹ १,००,०००/-</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 text-center font-semibold">६ वर्षे १ महिना</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ १,०००/-</td>
+                  <td class="px-4 py-3">-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-blue">₹ १,००,०००/-</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 text-center font-semibold">८ वर्षे</td>
+                  <td class="px-4 py-3 font-bold text-ssp-gdark">₹ ७००/-</td>
+                  <td class="px-4 py-3">-</td>
+                  <td class="px-4 py-3 font-bold text-ssp-blue">₹ १,००,०००/-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pt-6 border-t border-gray-100">
             <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B2%E0%A4%96%E0%A4%AA%E0%A4%A4%E0%A5%80%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-ssp-green hover:bg-ssp-gdark text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all text-base gap-2">
               <i class="fa-brands fa-whatsapp text-xl"></i> अधिक माहितीसाठी संपर्क करा
             </a>
@@ -654,26 +746,47 @@ window.addEventListener('scroll', function(){
   nb.style.boxShadow = window.scrollY > 30 ? '0 4px 24px rgba(22,101,52,.14)' : '0 2px 16px rgba(22,101,52,.06)';
 });
 
-// ── Interactive Lakhpati Goal Calculator ────
-const lakhpatiData = {
-  "1000": { months: "७८ महिने", deposit: "₹७८,०००", maturity: "₹१,१०,१५७" },
-  "1300": { months: "६० महिने", deposit: "₹७८,०००", maturity: "₹१,०१,२८०" },
-  "1700": { months: "४८ महिने", deposit: "₹८१,६००", maturity: "₹१,००,४८२" },
-  "2400": { months: "३६ महिने", deposit: "₹८६,४००", maturity: "₹१,००,९७९" },
-  "3800": { months: "२४ महिने", deposit: "₹९१,२००", maturity: "₹१,०१,२४७" },
-  "8000": { months: "१२ महिने", deposit: "₹९६,०००", maturity: "₹१,०१,२००" }
-};
+// ── Calculator Toggle & Logic ───────────────
+function formatMarathiWithCommas(num) {
+  let strNum = num.toLocaleString('en-IN'); 
+  const digits = ['०','१','२','३','४','५','६','७','८','९'];
+  return strNum.split('').map(d => digits[d] || d).join('');
+}
 
-function calculateLakhpati() {
-  const selectedVal = document.getElementById('monthlyInstallment').value;
-  const data = lakhpatiData[selectedVal];
+function toggleCalcType() {
+  const isLumpSum = document.querySelector('input[name="calcType"]:checked').value === 'lumpsum';
+  const lsSection = document.getElementById('lumpsumSection');
+  const rdSection = document.getElementById('rdSection');
   
-  if(data) {
-    document.getElementById('calcMonths').textContent = data.months;
-    document.getElementById('calcDeposit').textContent = data.deposit;
-    document.getElementById('calcMaturity').textContent = data.maturity;
+  if(isLumpSum) {
+    lsSection.classList.remove('hidden');
+    rdSection.classList.add('hidden');
+    calcLumpSum();
+  } else {
+    lsSection.classList.add('hidden');
+    rdSection.classList.remove('hidden');
+    calcRD();
   }
 }
+
+function calcLumpSum() {
+  const val = JSON.parse(document.getElementById('lsOption').value);
+  document.getElementById('lsTenure').textContent = val.tenure;
+  document.getElementById('lsDeposit').textContent = '₹' + formatMarathiWithCommas(val.dep);
+  document.getElementById('lsMaturity').textContent = '₹' + formatMarathiWithCommas(val.mat);
+}
+
+function calcRD() {
+  const val = JSON.parse(document.getElementById('rdOption').value);
+  document.getElementById('rdTenure').textContent = val.tenure;
+  document.getElementById('rdDeposit').textContent = '₹' + formatMarathiWithCommas(val.dep);
+  document.getElementById('rdMaturity2').textContent = '₹१,००,०००';
+}
+
+// Initialize
+window.onload = function() {
+  toggleCalcType();
+};
 </script>
 
 </body>
