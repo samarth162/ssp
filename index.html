@@ -453,10 +453,11 @@ body{font-family:'Mukta','Inter',sans-serif;color:#1f2937;background:#fff;overfl
 .gold-bar{width:48px;height:3px;background:var(--gold);border-radius:99px;margin:.5rem 0 1rem}
 
 /* ── Service / loan cards ──────────────────── */
+/* Height set to 100% and min-height added to ensure all cards are uniform */
 .svc-card{
   background:#fff;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;
   transition:box-shadow .25s,transform .2s,border-color .25s;position:relative;
-  display: flex; flex-direction: column; height: 320px;
+  display: flex; flex-direction: column; height: 100%; min-height: 400px;
 }
 .svc-card:hover{
   box-shadow:0 16px 48px rgba(22,101,52,.13);
@@ -638,7 +639,8 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
         <i class="fa-solid fa-envelope topbar-icon"></i>swamisamarthparivar.info@gmail.com
       </a>
       <a href="#" class="flex items-center hidden sm:flex">
-        <i class="fa-solid fa-clock topbar-icon"></i>सोम–शनि सकाळी १० ते सायं ६
+        <!-- Office hours updated here -->
+        <i class="fa-solid fa-clock topbar-icon"></i>सोम–शनि सकाळी ११ ते सायं ६
       </a>
     </div>
     <div class="flex items-center gap-4">
@@ -730,7 +732,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       <div class="nav-item" onclick="toggleDD(this)">
         <span class="nav-link">डाउनलोड्स <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span>
         <div class="dropdown-menu">
-          <a href="downloads/reports.html">वार्षिक अहवाल</a>
+          <a href="downloads/reports.html">Downloads</a>
         </div>
       </div>
 
@@ -842,16 +844,21 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       </div>
       <div class="noticeboard-body">
         <div class="noticeboard-track" id="noticeTrack">
+          <div class="notice-item"><i class="fa-solid fa-star text-yellow-500"></i><div><span class="nt">२८ जून २०२६</span><span class="nb">आगामी कार्यक्रम 'आकाशझेप २०२५-२६' — सर्वांना सस्नेह निमंत्रण!</span></div></div>
           <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">१२ जून २०२६</span><span class="nb">विशेष १२% कमाल FD व्याजदर आता लागू.</span></div></div>
           <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">१० जून २०२६</span><span class="nb">नवीन सभासद नोंदणी सुरू — फक्त ₹५००.</span></div></div>
           <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">०५ जून २०२६</span><span class="nb">दाम तिप्पट ठेव योजना नव्याने सुरु.</span></div></div>
           <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">०१ जून २०२६</span><span class="nb">दामदुप्पट ठेव योजना ७८ महिन्यांत.</span></div></div>
-          <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">२८ मे २०२६</span><span class="nb">शाखेच्या कार्यालयीन वेळेत बदल — सोम–शनि सकाळी १०–६.</span></div></div>
+          <!-- Notice timing updated here -->
+          <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">२८ मे २०२६</span><span class="nb">शाखेच्या कार्यालयीन वेळेत बदल — सोम–शनि सकाळी ११–६.</span></div></div>
+          
+          <div class="notice-item"><i class="fa-solid fa-star text-yellow-500"></i><div><span class="nt">२८ जून २०२६</span><span class="nb">आगामी कार्यक्रम 'आकाशझेप २०२५-२६' — सर्वांना सस्नेह निमंत्रण!</span></div></div>
           <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">१२ जून २०२६</span><span class="nb">विशेष १२% कमाल FD व्याजदर आता लागू.</span></div></div>
           <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">१० जून २०२६</span><span class="nb">नवीन सभासद नोंदणी सुरू — फक्त ₹५००.</span></div></div>
           <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">०५ जून २०२६</span><span class="nb">दाम तिप्पट ठेव योजना नव्याने सुरु.</span></div></div>
           <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">०१ जून २०२६</span><span class="nb">दामदुप्पट ठेव योजना ७८ महिन्यांत.</span></div></div>
-          <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">२८ मे २०२६</span><span class="nb">शाखेच्या कार्यालयीन वेळेत बदल — सोम–शनि सकाळी १०–६.</span></div></div>
+          <!-- Notice timing updated here -->
+          <div class="notice-item"><i class="fa-solid fa-circle-exclamation"></i><div><span class="nt">२८ मे २०२६</span><span class="nb">शाखेच्या कार्यालयीन वेळेत बदल — सोम–शनि सकाळी ११–६.</span></div></div>
         </div>
       </div>
     </div>
@@ -879,7 +886,10 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag" style="background:#dbeafe;color:var(--blue)">वाहन कर्ज</span>
             <div class="svc-title">वाहन कर्ज</div>
             <p class="svc-desc">तुमचे स्वतःचे वाहन घेण्याचे स्वप्न आता सहज पूर्ण करा. कमी कागदपत्रे आणि जलद मंजुरीसह वाहन कर्ज उपलब्ध.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B5%E0%A4%BE%E0%A4%B9%E0%A4%A8%20%E0%A4%95%E0%A4%B0%E0%A5%8D%E0%A4%9C%E0%A4%BE%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="loans/vehicle-loan.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B5%E0%A4%BE%E0%A4%B9%E0%A4%A8%20%E0%A4%95%E0%A4%B0%E0%A5%8D%E0%A4%9C%E0%A4%BE%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -889,7 +899,10 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag" style="background:#fef3c7;color:#92400e">गोल्ड लोन</span>
             <div class="svc-title">गोल्ड लोन</div>
             <p class="svc-desc">तुमच्या सोन्याच्या दागिन्यांवर त्वरित रोख मिळवा. अत्यंत सुरक्षित स्टोरेज आणि जलद मंजुरी.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%97%E0%A5%8B%E0%A4%B2%E0%A5%8D%E0%A4%A1%20%E0%A4%B2%E0%A5%8B%E0%A4%A8%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="loans/gold-loan.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%97%E0%A5%8B%E0%A4%B2%E0%A5%8D%E0%A4%A1%20%E0%A4%B2%E0%A5%8B%E0%A4%A8%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -899,7 +912,10 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag">प्रॉपर्टी मॉर्गेज लोन</span>
             <div class="svc-title">प्रॉपर्टी मॉर्गेज लोन</div>
             <p class="svc-desc">तुमच्या मालमत्तेवर तारण कर्ज मिळवा आणि तुमच्या मोठ्या आर्थिक गरजा सहज पूर्ण करा.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%89%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%9F%E0%A5%80%20%E0%A4%AE%E0%A5%89%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A5%87%E0%A4%9C%20%E0%A4%B2%E0%A5%8B%E0%A4%A8%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="loans/property-loan.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%89%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%9F%E0%A5%80%20%E0%A4%AE%E0%A5%89%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A5%87%E0%A4%9C%20%E0%A4%B2%E0%A5%8B%E0%A4%A8%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -909,7 +925,10 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag" style="background:#fce7f3;color:#be185d">बचत गट कर्ज</span>
             <div class="svc-title">बचत गट कर्ज</div>
             <p class="svc-desc">महिला व इतर बचत गटांना आर्थिक सक्षम करण्यासाठी विशेष कर्ज योजना.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AC%E0%A4%9A%E0%A4%A4%20%E0%A4%97%E0%A4%9F%20%E0%A4%95%E0%A4%B0%E0%A5%8D%E0%A4%9C%E0%A4%BE%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="loans/shg-loan.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AC%E0%A4%9A%E0%A4%A4%20%E0%A4%97%E0%A4%9F%20%E0%A4%95%E0%A4%B0%E0%A5%8D%E0%A4%9C%E0%A4%BE%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -919,7 +938,36 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag">बिझनेस लोन</span>
             <div class="svc-title">बिझनेस लोन</div>
             <p class="svc-desc">तुमचा व्यवसाय वाढवण्यासाठी त्वरित व्यावसायिक कर्ज मिळवा.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AC%E0%A4%BF%E0%A4%9D%E0%A4%A8%E0%A5%87%E0%A4%B8%20%E0%A4%B2%E0%A5%8B%E0%A4%A8%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="loans/business-loan.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AC%E0%A4%BF%E0%A4%9D%E0%A4%A8%E0%A5%87%E0%A4%B8%20%E0%A4%B2%E0%A5%8B%E0%A4%A8%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-card shrink-0 snap-center w-[280px] sm:w-[320px] lg:w-[360px]">
+          <div class="svc-img-placeholder" style="background:linear-gradient(135deg,#e0e7ff,#fae8ff)"><i class="fa-solid fa-house" style="color:#4f46e5"></i></div>
+          <div class="svc-body">
+            <span class="svc-tag" style="background:#e0e7ff;color:#4f46e5">होम लोन</span>
+            <div class="svc-title">होम लोन</div>
+            <p class="svc-desc">तुमचे स्वतःचे घर घेण्याचे स्वप्न पूर्ण करण्यासाठी आकर्षक दरात गृहकर्ज.</p>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="loans/home-loan.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B9%E0%A5%8B%E0%A4%AE%20%E0%A4%B2%E0%A5%8B%E0%A4%A8%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-card shrink-0 snap-center w-[280px] sm:w-[320px] lg:w-[360px]">
+          <div class="svc-img-placeholder" style="background:linear-gradient(135deg,#ffedd5,#fef3c7)"><i class="fa-solid fa-user" style="color:#ea580c"></i></div>
+          <div class="svc-body">
+            <span class="svc-tag" style="background:#ffedd5;color:#ea580c">पर्सनल लोन</span>
+            <div class="svc-title">पर्सनल लोन</div>
+            <p class="svc-desc">तुमच्या सर्व तातडीच्या वैयक्तिक गरजांसाठी विना अडथळा वैयक्तिक कर्ज.</p>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="loans/personal-loan.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%B8%E0%A4%A8%E0%A4%B2%20%E0%A4%B2%E0%A5%8B%E0%A4%A8%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A4%B6%E0%A5%80%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -950,7 +998,10 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag" style="background:#fef3c7;color:#92400e">दामदुप्पट ठेव</span>
             <div class="svc-title">दामदुप्पट ठेव (७८ महिने)</div>
             <p class="svc-desc">फक्त ७८ महिन्यांच्या कालावधीत तुमची सुरुवातीची ठेव दुप्पट मिळवा.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%A6%E0%A4%BE%E0%A4%AE%E0%A4%A6%E0%A5%81%E0%A4%AA%E0%A5%8D%E0%A4%AA%E0%A4%9F%20%E0%A4%A0%E0%A5%87%E0%A4%B5%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="deposits/damduppat.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%A6%E0%A4%BE%E0%A4%AE%E0%A4%A6%E0%A5%81%E0%A4%AA%E0%A5%8D%E0%A4%AA%E0%A4%9F%20%E0%A4%A0%E0%A5%87%E0%A4%B5%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -960,7 +1011,10 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag" style="background:#ffedd5;color:#c2410c">दाम दीडपट ठेव</span>
             <div class="svc-title">दाम दीडपट ठेव (४ वर्षे)</div>
             <p class="svc-desc">फक्त ४ वर्षांमध्ये तुमच्या मुद्दलावर दीडपट सुरक्षित परतावा मिळवा.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%A6%E0%A4%BE%E0%A4%AE%20%E0%A4%A6%E0%A5%80%E0%A4%A1%E0%A4%AA%E0%A4%9F%20%E0%A4%A0%E0%A5%87%E0%A4%B5%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="deposits/damdidpat.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%A6%E0%A4%BE%E0%A4%AE%20%E0%A4%A6%E0%A5%80%E0%A4%A1%E0%A4%AA%E0%A4%9F%20%E0%A4%A0%E0%A5%87%E0%A4%B5%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -970,7 +1024,10 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag" style="background:#ffedd5;color:#c2410c">दाम तिप्पट</span>
             <div class="svc-title">दाम तिप्पट ठेव योजना (९ वर्षे)</div>
             <p class="svc-desc">९ वर्षांच्या कालावधीत तुमची ठेव रक्कम तिप्पट मिळवा. एक उत्तम आणि सुरक्षित गुंतवणूक पर्याय.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%A6%E0%A4%BE%E0%A4%AE%20%E0%A4%A4%E0%A4%BF%E0%A4%AA%E0%A5%8D%E0%A4%AA%E0%A4%9F%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="deposits/damtippat.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%A6%E0%A4%BE%E0%A4%AE%20%E0%A4%A4%E0%A4%BF%E0%A4%AA%E0%A5%8D%E0%A4%AA%E0%A4%9F%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -980,7 +1037,10 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag">लखपती ठेव</span>
             <div class="svc-title">लखपती ठेव योजना</div>
             <p class="svc-desc">तुमच्या छोट्या बचतीतून मोठे उद्दिष्ट गाठा आणि सुरक्षितपणे लखपती व्हा.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B2%E0%A4%96%E0%A4%AA%E0%A4%A4%E0%A5%80%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="deposits/lakhpati-yojana.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B2%E0%A4%96%E0%A4%AA%E0%A4%A4%E0%A5%80%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -990,7 +1050,10 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag" style="background:#fce7f3;color:#be185d">शुभमंगल ठेव</span>
             <div class="svc-title">शुभमंगल ठेव योजना</div>
             <p class="svc-desc">मुलीच्या विवाहासाठी व उज्ज्वल भविष्यासाठी उत्तम आर्थिक तरतूद करणारी विशेष योजना.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B6%E0%A5%81%E0%A4%AD%E0%A4%AE%E0%A4%82%E0%A4%97%E0%A4%B2%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="deposits/shubhmangal.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B6%E0%A5%81%E0%A4%AD%E0%A4%AE%E0%A4%82%E0%A4%97%E0%A4%B2%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -1000,7 +1063,10 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag" style="background:#ede9fe;color:#7c3aed">मासिक पेन्शन ठेव</span>
             <div class="svc-title">मासिक पेन्शन ठेव</div>
             <p class="svc-desc">तुमच्या निवृत्तीनंतर नियमित उत्पन्न मिळवण्यासाठी सुरक्षित आणि खात्रीशीर योजना.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A4%BF%E0%A4%95%20%E0%A4%AA%E0%A5%87%E0%A4%82%E0%A4%B6%E0%A4%A8%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="deposits/monthly-pension.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A4%BF%E0%A4%95%20%E0%A4%AA%E0%A5%87%E0%A4%82%E0%A4%B6%E0%A4%A8%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -1010,7 +1076,36 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
             <span class="svc-tag" style="background:#dbeafe;color:var(--blue)">आर.डी. ठेव</span>
             <div class="svc-title">आकर्षक आर.डी. ठेव</div>
             <p class="svc-desc">दर महिन्याला बचत करा आणि आकर्षक चक्रवाढ व्याज मिळवा.</p>
-            <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%86%E0%A4%95%E0%A4%B0%E0%A5%8D%E0%A4%B7%E0%A4%95%20%E0%A4%86%E0%A4%B0.%E0%A4%A1%E0%A5%80.%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="inline-block text-center w-full bg-ssp-green text-white px-4 py-2.5 mt-auto rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="deposits/rd-scheme.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%86%E0%A4%95%E0%A4%B0%E0%A5%8D%E0%A4%B7%E0%A4%95%20%E0%A4%86%E0%A4%B0.%E0%A4%A1%E0%A5%80.%20%E0%A4%A0%E0%A5%87%E0%A4%B5%20%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-card shrink-0 snap-center w-[280px] sm:w-[320px] lg:w-[360px]">
+          <div class="svc-img-placeholder" style="background:linear-gradient(135deg,#e0e7ff,#fae8ff)"><i class="fa-solid fa-piggy-bank" style="color:#4f46e5"></i></div>
+          <div class="svc-body">
+            <span class="svc-tag" style="background:#e0e7ff;color:#4f46e5">बचत खाते</span>
+            <div class="svc-title">बचत खाते (Saving Account)</div>
+            <p class="svc-desc">तुमच्या दैनंदिन आर्थिक गरजांसाठी आणि सुरक्षित बचतीसाठी सर्वोत्तम पर्याय.</p>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="deposits/saving-account.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AC%E0%A4%9A%E0%A4%A4%20%E0%A4%96%E0%A4%BE%E0%A4%A4%E0%A5%87%20%E0%A4%89%E0%A4%98%E0%A4%A1%E0%A4%BE%E0%A4%AF%E0%A4%9A%E0%A5%87%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-card shrink-0 snap-center w-[280px] sm:w-[320px] lg:w-[360px]">
+          <div class="svc-img-placeholder" style="background:linear-gradient(135deg,#ffedd5,#fef3c7)"><i class="fa-solid fa-lock" style="color:#ea580c"></i></div>
+          <div class="svc-body">
+            <span class="svc-tag" style="background:#ffedd5;color:#ea580c">फिक्स्ड डिपॉझिट</span>
+            <div class="svc-title">फिक्स्ड डिपॉझिट (FD)</div>
+            <p class="svc-desc">निश्चित कालावधीसाठी गुंतवणूक करून उच्च आणि खात्रीशीर परतावा मिळवा.</p>
+            <div class="mt-auto flex flex-col gap-2 pt-2">
+              <a href="deposits/fixed-deposit.html" class="text-center w-full border border-ssp-blue text-ssp-blue px-4 py-2 rounded hover:bg-ssp-blue hover:text-white transition-colors font-bold text-sm">अधिक माहिती</a>
+              <a href="https://wa.me/919373716816?text=%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AB%E0%A4%BF%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A5%8D%E0%A4%A1%20%E0%A4%A1%E0%A4%BF%E0%A4%AA%E0%A5%89%E0%A4%9D%E0%A4%BF%E0%A4%9F%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87" target="_blank" class="text-center w-full bg-ssp-green text-white px-4 py-2.5 rounded hover:bg-ssp-gdark transition-colors font-bold text-sm">चौकशी करा</a>
+            </div>
           </div>
         </div>
 
@@ -1303,8 +1398,8 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       </div>
 
       <div class="flex gap-4 justify-center">
-        <a href="#" class="text-sm text-white/50 hover:text-white transition">गोपनीयता धोरण</a>
-        <a href="#" class="text-sm text-white/50 hover:text-white transition">नियम आणि अटी</a>
+        <a href="legal/policy.html" class="text-sm text-white/50 hover:text-white transition">गोपनीयता धोरण</a>
+        <a href="legal/tc.html" class="text-sm text-white/50 hover:text-white transition">नियम आणि अटी</a>
       </div>
     </div>
   </div>
