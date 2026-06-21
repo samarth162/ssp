@@ -570,8 +570,8 @@ window.addEventListener('scroll', function(){
 });
 
 // ── DYNAMIC BLOG FETCH LOGIC ──────────────────
-// SSP Seva Blogger RSS Feed URL
-const rssFeedUrl = "https://sspseva.blogspot.com/feeds/posts/default?alt=rss"; 
+// SSP Seva Blogger RSS Feed URL - Added max-results=50 to fetch up to 50 blogs
+const rssFeedUrl = "https://sspseva.blogspot.com/feeds/posts/default?alt=rss&max-results=50"; 
 
 // Using rss2json free API to convert RSS to JSON without needing a backend
 const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeedUrl)}`;
@@ -584,8 +584,8 @@ fetch(apiUrl)
 
     if (data.status === 'ok' && data.items && data.items.length > 0) {
       
-      // Limit to showing latest 6 posts
-      const posts = data.items.slice(0, 6);
+      // Limit to showing latest 50 posts
+      const posts = data.items.slice(0, 50);
 
       posts.forEach(post => {
         // Format Date
