@@ -187,6 +187,8 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border: 1px solid #e5e7eb;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 .gallery-card:hover {
   transform: translateY(-5px);
@@ -196,28 +198,36 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 .gallery-img-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 75%; /* 4:3 Aspect Ratio */
+  height: 250px; /* Fixed height for uniformity */
   overflow: hidden;
   background-color: #f3f4f6;
   border-bottom: 2px solid var(--green);
 }
 .gallery-img-wrapper img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Ensures images cover the area without distortion */
   transition: transform 0.6s ease;
 }
 .gallery-card:hover .gallery-img-wrapper img {
   transform: scale(1.08);
 }
 .gallery-caption {
-  padding: 1rem;
+  padding: 1.25rem 1rem;
   text-align: center;
   font-family: 'Mukta', sans-serif;
   background: #f9fafb;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-caption p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-weight: 600;
+  margin: 0;
 }
 </style>
 </head>
@@ -233,7 +243,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
         <i class="fa-solid fa-envelope topbar-icon"></i>swamisamarthparivar.info@gmail.com
       </a>
       <a href="#" class="flex items-center hidden sm:flex">
-        <i class="fa-solid fa-clock topbar-icon"></i>सोम–शनि सकाळी १० ते सायं ६
+        <i class="fa-solid fa-clock topbar-icon"></i>सोम–शनि सकाळी ११ ते सायं ६
       </a>
     </div>
     <div class="flex items-center gap-4">
@@ -323,11 +333,8 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
         </div>
       </div>
 
-      <div class="nav-item" onclick="toggleDD(this)">
-        <span class="nav-link">डाउनलोड्स <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span>
-        <div class="dropdown-menu">
-          <a href="../downloads/reports.html">वार्षिक अहवाल</a>
-        </div>
+      <div class="nav-item">
+        <a href="../downloads/reports.html" class="nav-link">डाउनलोड्स</a>
       </div>
 
       <div class="nav-item" onclick="toggleDD(this)">
@@ -360,105 +367,168 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
     </div>
 
     <!-- Gallery Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
 
       <!-- Item 1 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
-          <img src="../images/1.png" alt="शाखा उद्घाटन सोहळा">
+          <img src="../images/1.jpeg" alt="शालेय पुस्तकांचे वाटप">
         </div>
         <div class="gallery-caption">
-          <h4 class="font-bold text-ssp-gdark text-base">शाखा उद्घाटन सोहळा</h4>
+          <p>श्री स्वामी समर्थ परिवारातर्फे ५०००+ शालेय पुस्तकांचे गरीब आणि गरजू विद्यार्थ्यांना मोफत वाटप (सामाजिक बांधिलकी - CSR उपक्रम).</p>
         </div>
       </div>
 
       <!-- Item 2 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
-          <img src="../images/2.png" alt="वार्षिक सर्वसाधारण सभा">
+          <img src="../images/2.jpeg" alt="मुख्य कार्यालयाचे उद्घाटन">
         </div>
         <div class="gallery-caption">
-          <h4 class="font-bold text-ssp-gdark text-base">वार्षिक सर्वसाधारण सभा</h4>
+          <p>जिल्हा परिषद जवळील मुख्य कॉर्पोरेट कार्यालयाचे शानदार उद्घाटन, जे आता सर्व शाखांचे नियंत्रण केंद्र म्हणून कार्यरत राहील.</p>
         </div>
       </div>
 
       <!-- Item 3 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
-          <img src="../images/3.png" alt="संस्थेचा वर्धापन दिन">
+          <img src="../images/3.jpeg" alt="वार्षिक अहवाल सभा">
         </div>
         <div class="gallery-caption">
-          <h4 class="font-bold text-ssp-gdark text-base">संस्थेचा वर्धापन दिन</h4>
+          <p>हत्तूर येथे संपन्न झालेली वार्षिक अहवाल सभा २०२५, ज्यामध्ये सर्व सभासद, मान्यवर आणि हितचिंतक उपस्थित होते.</p>
         </div>
       </div>
 
       <!-- Item 4 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
-          <img src="../images/4.png" alt="रक्तदान शिबिर आणि सामाजिक उपक्रम">
+          <img src="../images/4.jpeg" alt="वृक्षारोपण कार्यक्रम">
         </div>
         <div class="gallery-caption">
-          <h4 class="font-bold text-ssp-gdark text-base">सामाजिक उपक्रम</h4>
+          <p>पर्यावरणाच्या संवर्धनासाठी संस्थेतर्फे राबवण्यात आलेला विशेष वृक्षारोपण कार्यक्रम (Tree Plantation Drive).</p>
         </div>
       </div>
 
       <!-- Item 5 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
-          <img src="../images/5.png" alt="ठेवीदार आणि कर्जदार मेळावा">
+          <img src="../images/5.jpeg" alt="ग्रामपंचायत कार्यालयाचे उद्घाटन">
         </div>
         <div class="gallery-caption">
-          <h4 class="font-bold text-ssp-gdark text-base">ठेवीदार व कर्जदार मेळावा</h4>
+          <p>श्री स्वामी समर्थ परिवार आणि ग्रामपंचायत हत्तूर यांच्या संयुक्त विद्यमाने नवीन कार्यालयाचे उद्घाटन. प्रमुख पाहुणे आमदार सुभाष देशमुख यांच्या उपस्थितीत संपन्न.</p>
         </div>
       </div>
 
       <!-- Item 6 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
-          <img src="../images/6.png" alt="पुरस्कार वितरण सोहळा">
+          <img src="../images/6.jpeg" alt="कलावती नगर शाखा उद्घाटन">
         </div>
         <div class="gallery-caption">
-          <h4 class="font-bold text-ssp-gdark text-base">पुरस्कार वितरण सोहळा</h4>
+          <p>कलावती नगर शाखेचा शानदार उद्घाटन सोहळा, ग्राहकांना आधुनिक बँकिंग सेवा देण्यासाठी संस्था सज्ज.</p>
         </div>
       </div>
 
       <!-- Item 7 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
-          <img src="../images/7.png" alt="वृक्षारोपण उपक्रम">
+          <img src="../images/7.jpeg" alt="होटगी शाखा उद्घाटन">
         </div>
         <div class="gallery-caption">
-          <h4 class="font-bold text-ssp-gdark text-base">वृक्षारोपण उपक्रम</h4>
+          <p>होटगी शाखेचे उद्घाटन, ग्रामीण भागातील आर्थिक विकासासाठी एक महत्त्वाचे पाऊल.</p>
         </div>
       </div>
 
       <!-- Item 8 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
-          <img src="../images/8.png" alt="संचालक मंडळ आणि कर्मचारी वर्ग">
+          <!-- Added object-top for vertical images to show faces -->
+          <img src="../images/8.jpeg" alt="ऊसतोड कामगार मदत" style="object-position: top;">
         </div>
         <div class="gallery-caption">
-          <h4 class="font-bold text-ssp-gdark text-base">संचालक मंडळ बैठक</h4>
+          <p>संस्थेचा एक स्तुत्य उपक्रम: ऊसतोड कामगारांना आधार देण्यासाठी मदत वाटप आणि मोफत नेत्र तपासणी शिबिराचे आयोजन.</p>
         </div>
       </div>
 
       <!-- Item 9 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
-          <img src="../images/9.png" alt="आधुनिक बँकिंग सुविधांचा शुभारंभ">
+          <img src="../images/9.jpeg" alt="निंबर्गी शाखा उद्घाटन">
         </div>
         <div class="gallery-caption">
-          <h4 class="font-bold text-ssp-gdark text-base">आधुनिक बँकिंग शुभारंभ</h4>
+          <p>निंबर्गी शाखेच्या उद्घाटनाचा आनंददायी क्षण, संस्थेच्या विस्तार आणि प्रगतीची साक्ष.</p>
         </div>
       </div>
 
-      <!-- Item 10 -->
+      <!-- Note: 10.jpeg is intentionally omitted as per instructions -->
+
+      <!-- Item 11 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
-          <img src="../images/10.png" alt="ग्राहकांसोबतचा स्नेहसंवाद">
+          <img src="../images/11.jpeg" alt="बरूर शाखा कर्मचारी">
         </div>
         <div class="gallery-caption">
-          <h4 class="font-bold text-ssp-gdark text-base">ग्राहकांसोबत संवाद</h4>
+          <p>आमची ताकद: बरूर शाखेचा संपूर्ण उत्साही कर्मचारी वर्ग (Team Photo) त्यांच्या शाखेच्या प्रांगणात.</p>
+        </div>
+      </div>
+
+      <!-- Item 12 -->
+      <div class="gallery-card group">
+        <div class="gallery-img-wrapper">
+          <img src="../images/12.jpeg" alt="ग्रामपंचायत कार्यालयाचे उद्घाटन 2">
+        </div>
+        <div class="gallery-caption">
+          <p>हत्तूर ग्रामपंचायत नवीन कार्यालय उद्घाटन सोहळ्यातील आणखी एक महत्त्वपूर्ण क्षणचित्र.</p>
+        </div>
+      </div>
+
+      <!-- Item 13 -->
+      <div class="gallery-card group">
+        <div class="gallery-img-wrapper">
+          <img src="../images/13.jpeg" alt="होटगी शाखा उद्घाटन 2">
+        </div>
+        <div class="gallery-caption">
+          <p>होटगी शाखेच्या उद्घाटन प्रसंगी उपस्थित मान्यवर आणि ग्रामस्थांची विशेष उपस्थिती.</p>
+        </div>
+      </div>
+
+      <!-- Item 14 -->
+      <div class="gallery-card group">
+        <div class="gallery-img-wrapper">
+          <img src="../images/14.jpeg" alt="कुमठा नाका कर्मचारी">
+        </div>
+        <div class="gallery-caption">
+          <p>कुमठा नाका शाखेची संपूर्ण टीम ग्राहकांना तत्पर सेवा देण्यासाठी नेहमी सज्ज आणि कटिबद्ध.</p>
+        </div>
+      </div>
+
+      <!-- Item 15 -->
+      <div class="gallery-card group">
+        <div class="gallery-img-wrapper">
+          <img src="../images/15.jpeg" alt="मंद्रुप शाखा दिवाळी">
+        </div>
+        <div class="gallery-caption">
+          <p>मंद्रुप शाखेमध्ये दिवाळी सणानिमित्त आयोजित लक्ष्मीपूजन कार्यक्रमातील कर्मचारी वर्गाचे उत्साहवर्धक छायाचित्र.</p>
+        </div>
+      </div>
+
+      <!-- Item 16 -->
+      <div class="gallery-card group">
+        <div class="gallery-img-wrapper">
+          <img src="../images/16.jpeg" alt="संस्थापक भाषण">
+        </div>
+        <div class="gallery-caption">
+          <p>ग्रामपंचायत कार्यालय उद्घाटनप्रसंगी मार्गदर्शन करताना श्री स्वामी समर्थ परिवाराचे संस्थापक मा. श्री. राजेंद्र कुलकर्णी.</p>
+        </div>
+      </div>
+
+      <!-- Item 17 -->
+      <div class="gallery-card group">
+        <div class="gallery-img-wrapper">
+          <img src="../images/17.jpeg" alt="हत्तूर शाखा कर्मचारी">
+        </div>
+        <div class="gallery-caption">
+          <p>हत्तूर शाखेसमोरील संस्थेच्या संपूर्ण टीमचे (Team Group Image) आकर्षक छायाचित्र.</p>
         </div>
       </div>
 
@@ -587,12 +657,12 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
     <!-- Footer bottom -->
     <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-6">
       <p class="text-sm text-white/50 text-center md:text-left">
-        © २०२६ श्री स्वामी समर्थ परिवार. सर्व পক্ষের हक्क राखीव.
+        © २०२६ श्री स्वामी समर्थ परिवार. सर्व पक्षांचे हक्क राखीव.
       </p>
       
       <div class="flex gap-4 justify-center">
-        <a href="#" class="text-sm text-white/50 hover:text-white transition">गोपनीयता धोरण</a>
-        <a href="#" class="text-sm text-white/50 hover:text-white transition">नियम आणि अटी</a>
+        <a href="../legal/policy.html" class="text-sm text-white/50 hover:text-white transition">गोपनीयता धोरण</a>
+        <a href="../legal/tc.html" class="text-sm text-white/50 hover:text-white transition">नियम आणि अटी</a>
       </div>
     </div>
   </div>
