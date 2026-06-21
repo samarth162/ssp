@@ -195,6 +195,14 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
   box-shadow: 0 15px 30px rgba(22, 101, 52, 0.12);
   border-color: var(--green);
 }
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  grid-column: 1 / -1;
+}
 </style>
 </head>
 <body>
@@ -209,7 +217,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
         <i class="fa-solid fa-envelope topbar-icon"></i>swamisamarthparivar.info@gmail.com
       </a>
       <a href="#" class="flex items-center hidden sm:flex">
-        <i class="fa-solid fa-clock topbar-icon"></i>सोम–शनि सकाळी १० ते सायं ६
+        <i class="fa-solid fa-clock topbar-icon"></i>सोम–शनि सकाळी ११ ते सायं ६
       </a>
     </div>
     <div class="flex items-center gap-4">
@@ -299,11 +307,8 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
         </div>
       </div>
 
-      <div class="nav-item" onclick="toggleDD(this)">
-        <span class="nav-link">डाउनलोड्स <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span>
-        <div class="dropdown-menu">
-          <a href="../downloads/reports.html">वार्षिक अहवाल</a>
-        </div>
+      <div class="nav-item">
+        <a href="../downloads/reports.html" class="nav-link">डाउनलोड्स</a>
       </div>
 
       <div class="nav-item" onclick="toggleDD(this)">
@@ -325,160 +330,23 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 <!-- ══════════════════════════════════════════
      MAIN VIDEO GALLERY CONTENT
 ══════════════════════════════════════════ -->
-<main class="py-16 bg-gray-50">
+<main class="py-16 bg-gray-50 min-h-[60vh]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="text-center mb-16">
       <p class="section-eyebrow">आमचे व्हिडिओ</p>
       <div class="gold-bar mx-auto"></div>
       <h2 class="section-heading mb-4 text-3xl md:text-4xl text-ssp-blue">व्हिडिओ गॅलरी</h2>
-      <p class="max-w-2xl mx-auto text-gray-600 font-medium">श्री स्वामी समर्थ परिवाराचे विविध उपक्रम, मार्गदर्शन आणि योजनांची माहिती देणारे व्हिडिओ खालीलप्रमाणे आहेत.</p>
+      <p class="max-w-2xl mx-auto text-gray-600 font-medium">श्री स्वामी समर्थ परिवाराचे विविध उपक्रम, मार्गदर्शन आणि योजनांची माहिती देणारे नवीन व्हिडिओ.</p>
     </div>
 
-    <!-- Video Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <!-- Video Card 1 -->
-      <div class="video-card group">
-        <div class="w-full aspect-video bg-gray-200 relative">
-          <!-- 
-            Instructions: Replace the "src" URL below with your actual YouTube video embed URL.
-            Example: src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-          -->
-          <iframe class="absolute top-0 left-0 w-full h-full" 
-                  src="" 
-                  title="YouTube video player" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-          </iframe>
-          <!-- Placeholder overlay if no src is provided (Can be removed once video is embedded) -->
-          <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-400 border-b-2 border-ssp-green">
-            <div class="text-center">
-              <i class="fa-brands fa-youtube text-4xl mb-2 text-gray-300"></i>
-              <p class="text-sm font-semibold">Video Link Pending</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-5 flex-1 bg-white">
-          <h4 class="font-bold text-ssp-gdark text-lg leading-tight mb-2">व्हिडिओचे शीर्षक येथे टाका (Video 1)</h4>
-          <p class="text-sm text-gray-500 font-medium">या व्हिडिओची थोडक्यात माहिती तुम्ही येथे टाकू शकता.</p>
-        </div>
-      </div>
-
-      <!-- Video Card 2 -->
-      <div class="video-card group">
-        <div class="w-full aspect-video bg-gray-200 relative">
-          <iframe class="absolute top-0 left-0 w-full h-full" 
-                  src="" 
-                  title="YouTube video player" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-          </iframe>
-          <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-400 border-b-2 border-ssp-green">
-            <div class="text-center">
-              <i class="fa-brands fa-youtube text-4xl mb-2 text-gray-300"></i>
-              <p class="text-sm font-semibold">Video Link Pending</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-5 flex-1 bg-white">
-          <h4 class="font-bold text-ssp-gdark text-lg leading-tight mb-2">व्हिडिओचे शीर्षक येथे टाका (Video 2)</h4>
-          <p class="text-sm text-gray-500 font-medium">या व्हिडिओची थोडक्यात माहिती तुम्ही येथे टाकू शकता.</p>
-        </div>
-      </div>
-
-      <!-- Video Card 3 -->
-      <div class="video-card group">
-        <div class="w-full aspect-video bg-gray-200 relative">
-          <iframe class="absolute top-0 left-0 w-full h-full" 
-                  src="" 
-                  title="YouTube video player" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-          </iframe>
-          <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-400 border-b-2 border-ssp-green">
-            <div class="text-center">
-              <i class="fa-brands fa-youtube text-4xl mb-2 text-gray-300"></i>
-              <p class="text-sm font-semibold">Video Link Pending</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-5 flex-1 bg-white">
-          <h4 class="font-bold text-ssp-gdark text-lg leading-tight mb-2">व्हिडिओचे शीर्षक येथे टाका (Video 3)</h4>
-          <p class="text-sm text-gray-500 font-medium">या व्हिडिओची थोडक्यात माहिती तुम्ही येथे टाकू शकता.</p>
-        </div>
-      </div>
-
-      <!-- Video Card 4 -->
-      <div class="video-card group">
-        <div class="w-full aspect-video bg-gray-200 relative">
-          <iframe class="absolute top-0 left-0 w-full h-full" 
-                  src="" 
-                  title="YouTube video player" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-          </iframe>
-          <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-400 border-b-2 border-ssp-green">
-            <div class="text-center">
-              <i class="fa-brands fa-youtube text-4xl mb-2 text-gray-300"></i>
-              <p class="text-sm font-semibold">Video Link Pending</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-5 flex-1 bg-white">
-          <h4 class="font-bold text-ssp-gdark text-lg leading-tight mb-2">व्हिडिओचे शीर्षक येथे टाका (Video 4)</h4>
-          <p class="text-sm text-gray-500 font-medium">या व्हिडिओची थोडक्यात माहिती तुम्ही येथे टाकू शकता.</p>
-        </div>
-      </div>
-
-      <!-- Video Card 5 -->
-      <div class="video-card group">
-        <div class="w-full aspect-video bg-gray-200 relative">
-          <iframe class="absolute top-0 left-0 w-full h-full" 
-                  src="" 
-                  title="YouTube video player" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-          </iframe>
-          <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-400 border-b-2 border-ssp-green">
-            <div class="text-center">
-              <i class="fa-brands fa-youtube text-4xl mb-2 text-gray-300"></i>
-              <p class="text-sm font-semibold">Video Link Pending</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-5 flex-1 bg-white">
-          <h4 class="font-bold text-ssp-gdark text-lg leading-tight mb-2">व्हिडिओचे शीर्षक येथे टाका (Video 5)</h4>
-          <p class="text-sm text-gray-500 font-medium">या व्हिडिओची थोडक्यात माहिती तुम्ही येथे टाकू शकता.</p>
-        </div>
-      </div>
-
-      <!-- Video Card 6 -->
-      <div class="video-card group">
-        <div class="w-full aspect-video bg-gray-200 relative">
-          <iframe class="absolute top-0 left-0 w-full h-full" 
-                  src="" 
-                  title="YouTube video player" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-          </iframe>
-          <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-400 border-b-2 border-ssp-green">
-            <div class="text-center">
-              <i class="fa-brands fa-youtube text-4xl mb-2 text-gray-300"></i>
-              <p class="text-sm font-semibold">Video Link Pending</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-5 flex-1 bg-white">
-          <h4 class="font-bold text-ssp-gdark text-lg leading-tight mb-2">व्हिडिओचे शीर्षक येथे टाका (Video 6)</h4>
-          <p class="text-sm text-gray-500 font-medium">या व्हिडिओची थोडक्यात माहिती तुम्ही येथे टाकू शकता.</p>
-        </div>
+    <!-- DYNAMIC VIDEO GRID (Fetched via JavaScript) -->
+    <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Loader (Shows until data is fetched) -->
+      <div class="loader" id="video-loader">
+        <i class="fa-brands fa-youtube fa-fade text-5xl text-red-600 mb-4"></i>
+        <p class="text-gray-500 font-bold">व्हिडिओ लोड होत आहेत...</p>
       </div>
 
     </div>
@@ -617,8 +485,9 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       </p>
       
       <div class="flex gap-4 justify-center">
-        <a href="#" class="text-sm text-white/50 hover:text-white transition">गोपनीयता धोरण</a>
-        <a href="#" class="text-sm text-white/50 hover:text-white transition">नियम आणि अटी</a>
+        <!-- Legal Links -->
+        <a href="../legal/policy.html" class="text-sm text-white/50 hover:text-white transition">गोपनीयता धोरण</a>
+        <a href="../legal/tc.html" class="text-sm text-white/50 hover:text-white transition">नियम आणि अटी</a>
       </div>
     </div>
   </div>
@@ -630,7 +499,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 </a>
 
 <!-- ══════════════════════════════════════════
-     SCRIPTS
+     SCRIPTS (Dynamic YouTube Fetching)
 ══════════════════════════════════════════ -->
 <script>
 // ── Nav dropdown toggle ──────────────────────
@@ -645,11 +514,85 @@ document.addEventListener('click', function(e){
   }
 });
 
-// ── Navbar scroll shadow ────────────────────
+// Navbar scroll shadow
 window.addEventListener('scroll', function(){
   var nb = document.getElementById('navbar');
   nb.style.boxShadow = window.scrollY > 30 ? '0 4px 24px rgba(22,101,52,.14)' : '0 2px 16px rgba(22,101,52,.06)';
 });
+
+// ── DYNAMIC YOUTUBE FETCH LOGIC ───────────────
+// Your Correct YouTube Channel ID
+const channelId = "UCrbW_nObvG-0VupkPt7GBTQ"; 
+const youtubeRssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+
+// Using rss2json API to convert YouTube RSS to JSON
+const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(youtubeRssUrl)}`;
+
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
+    const grid = document.getElementById('video-grid');
+    grid.innerHTML = ''; // Clear the loader
+
+    if (data.status === 'ok' && data.items && data.items.length > 0) {
+      
+      data.items.forEach(video => {
+        // Securely extract the 11 character YouTube ID
+        let videoId = "";
+        const urlMatch = video.link.match(/(?:v=|youtu\.be\/|shorts\/)([a-zA-Z0-9_-]{11})/);
+        if (urlMatch && urlMatch[1]) {
+          videoId = urlMatch[1];
+        } else {
+          videoId = video.guid.split(':').pop();
+        }
+        
+        // Date formatting
+        const dateObj = new Date(video.pubDate);
+        const formattedDate = dateObj.toLocaleDateString('mr-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+
+        // High Quality Thumbnail Link
+        const thumbUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+        // Card HTML (Using Clickable Thumbnail to avoid Error 153 on Shorts)
+        const cardHTML = `
+          <div class="video-card group">
+            <a href="${video.link}" target="_blank" class="w-full aspect-video bg-gray-200 relative block overflow-hidden">
+              <img src="${thumbUrl}" alt="Video Thumbnail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                <div class="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-play text-white text-xl ml-1"></i>
+                </div>
+              </div>
+            </a>
+            <div class="p-5 flex-1 bg-white flex flex-col justify-center">
+              <h4 class="font-bold text-ssp-gdark text-[1.05rem] leading-snug mb-1" title="${video.title}">${video.title}</h4>
+              <p class="text-xs text-gray-400 font-semibold mt-auto"><i class="fa-regular fa-calendar-days mr-1"></i> ${formattedDate}</p>
+            </div>
+          </div>
+        `;
+        
+        grid.innerHTML += cardHTML;
+      });
+
+    } else {
+      // Fallback if no videos found
+      grid.innerHTML = `
+        <div class="col-span-full text-center py-10 bg-white rounded-xl border border-gray-100">
+          <i class="fa-brands fa-youtube text-5xl text-gray-300 mb-4"></i>
+          <h3 class="text-xl font-bold text-gray-500">सध्या कोणतेही नवीन व्हिडिओ उपलब्ध नाहीत.</h3>
+          <a href="https://www.youtube.com/@SwamiSamarthParivaar" target="_blank" class="text-blue-500 hover:underline mt-2 inline-block font-bold">आमच्या चॅनेलला भेट द्या</a>
+        </div>
+      `;
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching YouTube feed:', error);
+    document.getElementById('video-grid').innerHTML = `
+      <div class="col-span-full text-center py-10 bg-white rounded-xl border border-red-100">
+        <p class="text-red-500 font-bold">व्हिडिओ लोड करण्यात तांत्रिक अडचण आली आहे. कृपया पेज रिफ्रेश करा.</p>
+      </div>
+    `;
+  });
 </script>
 
 </body>
