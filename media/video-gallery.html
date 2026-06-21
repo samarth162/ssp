@@ -485,7 +485,6 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       </p>
       
       <div class="flex gap-4 justify-center">
-        <!-- Legal Links -->
         <a href="../legal/policy.html" class="text-sm text-white/50 hover:text-white transition">गोपनीयता धोरण</a>
         <a href="../legal/tc.html" class="text-sm text-white/50 hover:text-white transition">नियम आणि अटी</a>
       </div>
@@ -521,12 +520,8 @@ window.addEventListener('scroll', function(){
 });
 
 // ── DYNAMIC YOUTUBE FETCH LOGIC ───────────────
-// Your Correct YouTube Channel ID
-const channelId = "UCrbW_nObvG-0VupkPt7GBTQ"; 
-const youtubeRssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-
-// Using rss2json API to convert YouTube RSS to JSON
-const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(youtubeRssUrl)}`;
+// Using Cloudflare Worker for YouTube Data API v3
+const apiUrl = `https://ssp-youtube-api.swamisamarthparivar-info.workers.dev/`;
 
 fetch(apiUrl)
   .then(response => response.json())
@@ -534,29 +529,26 @@ fetch(apiUrl)
     const grid = document.getElementById('video-grid');
     grid.innerHTML = ''; // Clear the loader
 
-    if (data.status === 'ok' && data.items && data.items.length > 0) {
+    // Check if items exist in the API response
+    if (data.items && data.items.length > 0) {
       
-      data.items.forEach(video => {
-        // Securely extract the 11 character YouTube ID
-        let videoId = "";
-        const urlMatch = video.link.match(/(?:v=|youtu\.be\/|shorts\/)([a-zA-Z0-9_-]{11})/);
-        if (urlMatch && urlMatch[1]) {
-          videoId = urlMatch[1];
-        } else {
-          videoId = video.guid.split(':').pop();
-        }
+      data.items.forEach(item => {
+        // YouTube Data API field mappings
+        const videoId = item.snippet.resourceId.videoId;
+        const videoTitle = item.snippet.title;
+        const videoLink = `https://www.youtube.com/watch?v=${videoId}`;
         
         // Date formatting
-        const dateObj = new Date(video.pubDate);
+        const dateObj = new Date(item.snippet.publishedAt);
         const formattedDate = dateObj.toLocaleDateString('mr-IN', { day: 'numeric', month: 'long', year: 'numeric' });
 
-        // High Quality Thumbnail Link
-        const thumbUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+        // High Quality Thumbnail Link directly from API
+        const thumbUrl = item.snippet.thumbnails.high.url;
 
         // Card HTML (Using Clickable Thumbnail to avoid Error 153 on Shorts)
         const cardHTML = `
           <div class="video-card group">
-            <a href="${video.link}" target="_blank" class="w-full aspect-video bg-gray-200 relative block overflow-hidden">
+            <a href="${videoLink}" target="_blank" class="w-full aspect-video bg-gray-200 relative block overflow-hidden">
               <img src="${thumbUrl}" alt="Video Thumbnail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
               <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                 <div class="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
@@ -565,7 +557,7 @@ fetch(apiUrl)
               </div>
             </a>
             <div class="p-5 flex-1 bg-white flex flex-col justify-center">
-              <h4 class="font-bold text-ssp-gdark text-[1.05rem] leading-snug mb-1" title="${video.title}">${video.title}</h4>
+              <h4 class="font-bold text-ssp-gdark text-[1.05rem] leading-snug mb-1" title="${videoTitle}">${videoTitle}</h4>
               <p class="text-xs text-gray-400 font-semibold mt-auto"><i class="fa-regular fa-calendar-days mr-1"></i> ${formattedDate}</p>
             </div>
           </div>
@@ -586,7 +578,7 @@ fetch(apiUrl)
     }
   })
   .catch(error => {
-    console.error('Error fetching YouTube feed:', error);
+    console.error('Error fetching YouTube API:', error);
     document.getElementById('video-grid').innerHTML = `
       <div class="col-span-full text-center py-10 bg-white rounded-xl border border-red-100">
         <p class="text-red-500 font-bold">व्हिडिओ लोड करण्यात तांत्रिक अडचण आली आहे. कृपया पेज रिफ्रेश करा.</p>
