@@ -214,9 +214,9 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       <a href="mailto:swamisamarthparivar.info@gmail.com" class="flex items-center">
         <i class="fa-solid fa-envelope topbar-icon"></i>swamisamarthparivar.info@gmail.com
       </a>
-      <a href="#" class="flex items-center hidden sm:flex">
-        <i class="fa-solid fa-clock topbar-icon"></i>सोम–शनि सकाळी १० ते सायं ६
-      </a>
+      <div class="flex items-center hidden sm:flex text-white/80 text-sm font-semibold">
+        <i class="fa-solid fa-clock topbar-icon"></i>सोम–शनि सकाळी ११ ते सायं ६
+      </div>
     </div>
     <div class="flex items-center gap-4">
       <a href="http://www.sspseva.com" target="_blank" class="hover:text-yellow-300 transition-colors hidden md:flex items-center text-xs border border-white/20 px-2 py-0.5 rounded"><i class="fa-solid fa-globe mr-1"></i> www.sspseva.com</a>
@@ -287,11 +287,10 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       <div class="nav-item" onclick="toggleDD(this)">
         <span class="nav-link">कर्ज <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span>
         <div class="dropdown-menu">
-          <a href="../loans/home-loan.html">होम लोन</a>
+          <a href="../loans/home-loan.html">होम आणि प्रॉपर्टी लोन</a>
           <a href="../loans/personal-loan.html">पर्सनल लोन</a>
           <a href="../loans/vehicle-loan.html">वाहन कर्ज</a>
           <a href="../loans/gold-loan.html">गोल्ड लोन</a>
-          <a href="../loans/property-loan.html">प्रॉपर्टी मॉर्गेज लोन</a>
           <a href="../loans/shg-loan.html">बचत गट कर्ज</a>
           <a href="../loans/business-loan.html">बिझनेस लोन</a>
         </div>
@@ -306,11 +305,8 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
         </div>
       </div>
 
-      <div class="nav-item" onclick="toggleDD(this)">
-        <span class="nav-link">डाउनलोड्स <i class="fa-solid fa-chevron-down text-xs ml-1"></i></span>
-        <div class="dropdown-menu">
-          <a href="../downloads/reports.html">वार्षिक अहवाल</a>
-        </div>
+      <div class="nav-item">
+        <a href="../downloads/reports.html" class="nav-link">डाउनलोड्स</a>
       </div>
 
       <div class="nav-item" onclick="toggleDD(this)">
@@ -407,7 +403,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
           
           <div class="space-y-4 text-gray-700 text-lg leading-relaxed relative z-10 font-medium">
             <p>
-              स्वामी समर्थ परिवार अर्बन को.ऑप क्रेडिट सोसायटीच्या वतीने मी आपणा सर्वांचे सहर्ष स्वागत करतो. 'नेहरू युवा नागरी सहकारी पतसंस्था' या नावाने सुरू झालेला आपला प्रवास आज स्वामी समर्थ परिवाराच्या भक्कम छत्राखाली अधिक गतीने आणिविश्वासाने पुढे जात आहे.
+              स्वामी समर्थ परिवार अर्बन को.ऑप क्रेडिट सोसायटीच्या वतीने मी आपणा सर्वांचे सहर्ष स्वागत करतो. 'नेहरू युवा नागरी सहकारी पतसंस्था' या नावाने सुरू झालेला आपला प्रवास आज स्वामी समर्थ परिवाराच्या भक्कम छत्राखाली अधिक गतीने आणि विश्वासाने पुढे जात आहे.
             </p>
             <p>
               बदलत्या काळानुसार बँकिंग क्षेत्रातही मोठे बदल होत आहेत. आमच्या अर्बन शाखेने या आधुनिक बदलांचा स्वीकार करून आपल्या ग्राहकांना जलद, सुरक्षित आणि अद्ययावत सेवा (जसे की QR कोड, SMS बँकिंग) देण्यास सुरुवात केली आहे. शहरी आणि निमशहरी भागातील नोकरदार, व्यावसायिक आणि महिला बचत गटांना आर्थिकदृष्ट्या सक्षम करणे हे आमचे प्राथमिक उद्दिष्ट आहे.
@@ -548,8 +544,8 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       </p>
       
       <div class="flex gap-4 justify-center">
-        <a href="#" class="text-sm text-white/50 hover:text-white transition">गोपनीयता धोरण</a>
-        <a href="#" class="text-sm text-white/50 hover:text-white transition">नियम आणि अटी</a>
+        <a href="../legal/policy.html" class="text-sm text-white/50 hover:text-white transition">गोपनीयता धोरण</a>
+        <a href="../legal/tc.html" class="text-sm text-white/50 hover:text-white transition">नियम आणि अटी</a>
       </div>
     </div>
   </div>
@@ -564,7 +560,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
      SCRIPTS
 ══════════════════════════════════════════ -->
 <script>
-// ── Nav dropdown toggle ──────────────────────
+// Nav dropdown toggle
 function toggleDD(el){
   var open = el.classList.contains('touch-open');
   document.querySelectorAll('.nav-item.touch-open').forEach(function(n){ n.classList.remove('touch-open'); });
@@ -576,7 +572,7 @@ document.addEventListener('click', function(e){
   }
 });
 
-// ── Navbar scroll shadow ────────────────────
+// Navbar scroll shadow
 window.addEventListener('scroll', function(){
   var nb = document.getElementById('navbar');
   nb.style.boxShadow = window.scrollY > 30 ? '0 4px 24px rgba(22,101,52,.14)' : '0 2px 16px rgba(22,101,52,.06)';
