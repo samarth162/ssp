@@ -206,7 +206,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 .gallery-img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures images cover the area without distortion */
+  object-fit: contain; /* Prevents images from being cropped */
   transition: transform 0.6s ease;
 }
 .gallery-card:hover .gallery-img-wrapper img {
@@ -242,9 +242,9 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       <a href="mailto:swamisamarthparivar.info@gmail.com" class="flex items-center">
         <i class="fa-solid fa-envelope topbar-icon"></i>swamisamarthparivar.info@gmail.com
       </a>
-      <a href="#" class="flex items-center hidden sm:flex">
+      <div class="flex items-center hidden sm:flex text-white/80 text-sm font-semibold">
         <i class="fa-solid fa-clock topbar-icon"></i>सोम–शनि सकाळी ११ ते सायं ६
-      </a>
+      </div>
     </div>
     <div class="flex items-center gap-4">
       <a href="http://www.sspseva.com" target="_blank" class="hover:text-yellow-300 transition-colors hidden md:flex items-center text-xs border border-white/20 px-2 py-0.5 rounded"><i class="fa-solid fa-globe mr-1"></i> www.sspseva.com</a>
@@ -369,6 +369,26 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
     <!-- Gallery Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
 
+      <!-- Item 18 (Latest) -->
+      <div class="gallery-card group">
+        <div class="gallery-img-wrapper">
+          <img src="../images/18.jpeg" alt="शालेय पुस्तकांचे वाटप २०२६">
+        </div>
+        <div class="gallery-caption">
+          <p>श्री स्वामी समर्थ परिवारातर्फे २०२६ मध्ये शालेय पुस्तकांचे यशस्वी वाटप. सर्व १० ग्रामीण आणि शहरी शाखांमधील २५००+ गरीब आणि गरजू विद्यार्थ्यांना १०,००० पेक्षा जास्त पुस्तके मोफत वितरित.</p>
+        </div>
+      </div>
+
+      <!-- Item 19 -->
+      <div class="gallery-card group">
+        <div class="gallery-img-wrapper">
+          <img src="../images/19.jpeg" alt="एक घर, एक झाड उपक्रम">
+        </div>
+        <div class="gallery-caption">
+          <p>'एक घर, एक झाड' उपक्रम - सोलापूर ग्रीन मिशन अंतर्गत डॉ. सूर्यप्रकाश कोटे यांच्या संयुक्त विद्यमाने आयोजित पर्यावरणपूरक मोहीम.</p>
+        </div>
+      </div>
+
       <!-- Item 1 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
@@ -442,7 +462,6 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       <!-- Item 8 -->
       <div class="gallery-card group">
         <div class="gallery-img-wrapper">
-          <!-- Added object-top for vertical images to show faces -->
           <img src="../images/8.jpeg" alt="ऊसतोड कामगार मदत" style="object-position: top;">
         </div>
         <div class="gallery-caption">
@@ -459,8 +478,6 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
           <p>निंबर्गी शाखेच्या उद्घाटनाचा आनंददायी क्षण, संस्थेच्या विस्तार आणि प्रगतीची साक्ष.</p>
         </div>
       </div>
-
-      <!-- Note: 10.jpeg is intentionally omitted as per instructions -->
 
       <!-- Item 11 -->
       <div class="gallery-card group">
@@ -529,6 +546,16 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
         </div>
         <div class="gallery-caption">
           <p>हत्तूर शाखेसमोरील संस्थेच्या संपूर्ण टीमचे (Team Group Image) आकर्षक छायाचित्र.</p>
+        </div>
+      </div>
+
+      <!-- Item 20 (Last) -->
+      <div class="gallery-card group">
+        <div class="gallery-img-wrapper">
+          <img src="../images/20.jpeg" alt="सांस्कृतिक कला महोत्सव २०२५">
+        </div>
+        <div class="gallery-caption">
+          <p>२ जून २०२५ रोजी सोलापूर येथे संपन्न झालेला 'सांस्कृतिक कला महोत्सव २०२५'. श्री स्वामी समर्थ परिवारातर्फे कलाकारांना व्यासपीठ उपलब्ध करून देणे आणि त्यांच्या सामाजिक योगदानाचा सन्मान करण्याचा यशस्वी उपक्रम.</p>
         </div>
       </div>
 
@@ -657,7 +684,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
     <!-- Footer bottom -->
     <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-6">
       <p class="text-sm text-white/50 text-center md:text-left">
-        © २०२६ श्री स्वामी समर्थ परिवार. सर्व पक्षांचे हक्क राखीव.
+        © २०२६ श्री स्वामी समर्थ परिवार. सर्व हक्क राखीव.
       </p>
       
       <div class="flex gap-4 justify-center">
@@ -677,7 +704,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
      SCRIPTS
 ══════════════════════════════════════════ -->
 <script>
-// ── Nav dropdown toggle ──────────────────────
+// Nav dropdown toggle
 function toggleDD(el){
   var open = el.classList.contains('touch-open');
   document.querySelectorAll('.nav-item.touch-open').forEach(function(n){ n.classList.remove('touch-open'); });
@@ -689,7 +716,7 @@ document.addEventListener('click', function(e){
   }
 });
 
-// ── Navbar scroll shadow ────────────────────
+// Navbar scroll shadow
 window.addEventListener('scroll', function(){
   var nb = document.getElementById('navbar');
   nb.style.boxShadow = window.scrollY > 30 ? '0 4px 24px rgba(22,101,52,.14)' : '0 2px 16px rgba(22,101,52,.06)';
