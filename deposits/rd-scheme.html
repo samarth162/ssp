@@ -42,8 +42,17 @@
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Mukta','Inter',sans-serif;color:#1f2937;background:#fff;overflow-x:hidden;}
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+body {
+  font-family: 'Mukta', 'Inter', sans-serif;
+  color: #1f2937;
+  background: #fff;
+}
 
 /* ── CSS variables ─────────────────────────── */
 :root{
@@ -327,7 +336,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
   </div>
 </nav>
 
-<main class="py-16 bg-gray-50">
+<main class="py-16 bg-gray-50 overflow-hidden w-full max-w-full">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="text-center mb-12">
@@ -337,9 +346,9 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       <p class="max-w-2xl mx-auto text-gray-600 font-medium">थेंबे थेंबे तळे साचे! दरमहा छोटी बचत करा आणि आमच्या विशेष दरांसह मोठी रक्कम मिळवा.</p>
     </div>
 
-    <div class="grid lg:grid-cols-12 gap-10 items-start">
+    <div class="grid lg:grid-cols-12 gap-10 items-start w-full min-w-0">
       
-      <div class="lg:col-span-5 space-y-6">
+      <div class="lg:col-span-5 space-y-6 min-w-0">
         
         <div class="calc-card border-t-4 border-ssp-gold">
           <h3 class="text-xl font-bold text-ssp-gdark mb-4 flex items-center gap-2">
@@ -384,7 +393,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 
       </div>
 
-      <div class="lg:col-span-7 space-y-6">
+      <div class="lg:col-span-7 space-y-6 min-w-0">
         
         <div class="bg-white p-4 sm:p-8 rounded-2xl shadow-md border border-gray-100 space-y-6 relative pb-16 w-full max-w-full overflow-hidden">
           <h3 class="text-2xl font-bold text-ssp-gdark">विशेष आर.डी. (Recurring Deposit)</h3>
