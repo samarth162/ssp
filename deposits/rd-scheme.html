@@ -187,10 +187,13 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 /* Interactive Calculator Styles */
 .calc-card {
   background: #ffffff;
-  padding: 2rem;
+  padding: 1.25rem; /* मोबाईलसाठी कमी पॅडिंग */
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   border: 1px solid #e5e7eb;
+}
+@media (min-width: 640px) {
+  .calc-card { padding: 2rem; } /* कॉम्पुटरसाठी जास्त पॅडिंग */
 }
 .growth-sticker {
   background: linear-gradient(135deg, #dcfce7, #f0fdf4);
@@ -355,7 +358,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
               <p class="text-xs text-gray-500 mt-1">१२ महिने ते ३६० महिने (३० वर्षे) पर्यंत कोणताही कालावधी टाका.</p>
             </div>
             
-            <div class="grid grid-cols-2 gap-4 bg-gray-50 p-3 rounded-lg border border-gray-100 text-sm font-semibold text-gray-600 mt-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-gray-50 p-3 rounded-lg border border-gray-100 text-sm font-semibold text-gray-600 mt-4">
               <div><i class="fa-solid fa-wallet mr-1 text-ssp-green"></i> एकूण जमा: <span id="displayTotalDeposit" class="block text-ssp-gdark font-bold text-base">₹७२,०००</span></div>
               <div><i class="fa-solid fa-chart-line mr-1 text-ssp-green"></i> प्रकार: <span class="block text-ssp-gdark font-bold text-base">मासिक बचत</span></div>
             </div>
@@ -383,7 +386,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 
       <div class="lg:col-span-7 space-y-6">
         
-        <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 space-y-6 relative pb-16">
+        <div class="bg-white p-4 sm:p-8 rounded-2xl shadow-md border border-gray-100 space-y-6 relative pb-16 w-full max-w-full overflow-hidden">
           <h3 class="text-2xl font-bold text-ssp-gdark">विशेष आर.डी. (Recurring Deposit)</h3>
           
           <p class="text-gray-700 text-lg leading-relaxed">
