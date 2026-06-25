@@ -775,8 +775,25 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
   <div class="max-w-7xl mx-auto px-4 py-8 grid lg:grid-cols-3 gap-6 items-stretch relative z-10">
 
     <div style="position:relative;overflow:hidden;border-radius:18px" class="lg:col-span-2">
-      <div class="carousel-inner" id="carouselInner">
+<div class="carousel-inner" id="carouselInner">
 
+        <!-- नवीन पहिली स्लाईड (Slide 1): रौप्य महोत्सव (२५ वर्षे) -->
+        <div class="flyer-slide">
+          <div class="flyer-card">
+            <span class="flyer-tag"><i class="fa-solid fa-award"></i> रौप्य महोत्सव (२५ वर्षे)</span>
+            <h1 class="flyer-title">२५ वर्षांची अविरत सेवा, <br><span>सहकारातून जनकल्याण!</span></h1>
+            <p class="flyer-sub">
+              गेली २५ वर्षे विश्वास आणि पारदर्शकतेच्या जोरावर सोलापूरकरांची पहिली पसंती. आमचे ध्येय: तुमच्या प्रत्येक आर्थिक प्रगतीला भक्कम साथ देणे.
+            </p>
+            <div class="grid grid-cols-3 gap-3 mt-6 max-w-md mx-auto">
+              <div class="hero-stat"><div class="num text-white">२५+</div><div class="lbl text-white">वर्षांची परंपरा</div></div>
+              <div class="hero-stat"><div class="num text-white">१००%</div><div class="lbl text-white">पारदर्शकता</div></div>
+              <div class="hero-stat"><div class="num text-white">१० हजार+</div><div class="lbl text-white">सभासद</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- जुनी पहिली स्लाईड (आता Slide 2): पुरस्कार विजेती संस्था -->
         <div class="flyer-slide">
           <div class="flyer-card">
             <span class="flyer-tag"><i class="fa-solid fa-star"></i> पुरस्कार विजेती संस्था</span>
@@ -798,6 +815,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
           </div>
         </div>
 
+        <!-- जुनी दुसरी स्लाईड (आता Slide 3): स्मार्ट बचत योजना -->
         <div class="flyer-slide">
           <div class="flyer-card">
             <span class="flyer-tag"><i class="fa-solid fa-piggy-bank"></i> स्मार्ट बचत योजना</span>
@@ -814,12 +832,13 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
           </div>
         </div>
 
+        <!-- जुनी तिसरी स्लाईड (आता Slide 4): जलद कर्ज मंजुरी -->
         <div class="flyer-slide">
           <div class="flyer-card">
             <span class="flyer-tag"><i class="fa-solid fa-handshake"></i> जलद कर्ज मंजुरी</span>
             <h1 class="flyer-title">तुमच्या गरजांसाठी <br><span>त्वरित कर्ज</span></h1>
             <p class="flyer-sub">
-              प्रॉपर्टी मॉर्गेज लोन • ३० मिनिटांत सुवर्ण कर्ज • व्यवसाय कर्ज सुलभ दरात.
+              प्रॉपर्टी मॉर्गेज लोन • ४५ मिनिटांत सुवर्ण कर्ज • व्यवसाय कर्ज सुलभ दरात.
             </p>
             <div class="grid grid-cols-4 gap-3 mt-6 max-w-lg mx-auto">
               <div class="hero-stat"><div class="num text-white">वाहन</div><div class="lbl text-white">कर्ज</div></div>
@@ -838,6 +857,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
         <div class="carousel-dot active" onclick="goSlide(0)"></div>
         <div class="carousel-dot" onclick="goSlide(1)"></div>
         <div class="carousel-dot" onclick="goSlide(2)"></div>
+        <div class="carousel-dot" onclick="goSlide(3)"></div>
       </div>
     </div>
 
@@ -1559,7 +1579,7 @@ counters.forEach(counter => { observer.observe(counter); });
 
 // ── Hero Carousel Logic ──────────────────────
 var current = 0;
-var total = 3;
+var total = 4;
 var autoInterval;
 
 function goSlide(idx){
