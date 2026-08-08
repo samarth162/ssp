@@ -1549,41 +1549,26 @@ function formatMarathiWithCommas(num) {
 }
 
 // ── API Visitor Counter ──────────────────────
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-  import { getDatabase, ref, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
-
-  // PASTE YOUR EXACT firebaseConfig HERE:
-const firebaseConfig = {
-  apiKey: "AIzaSyBqGKsKX8L_SRgIYKraAl-N1aOVynGTmS8",
-  authDomain: "ssp-visitor.firebaseapp.com",
-  databaseURL: "https://ssp-visitor-default-rtdb.firebaseio.com",
-  projectId: "ssp-visitor",
-
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-  const countRef = ref(db, 'visitorCount');
+<script>
+document.addEventListener("DOMContentLoaded", function() {
   const visitorCountEl = document.getElementById('visitorCount');
+  
+  // Your starting milestone
+  const baseViews = 1000; 
 
-  // Listen to live database updates
-  onValue(countRef, (snapshot) => {
-    const val = snapshot.val();
-    if (val !== null) {
-      visitorCountEl.textContent = formatMarathiWithCommas(val);
-    }
-  });
-
-  // Safely increment +1 per visit (starts at 1000 if empty)
-  runTransaction(countRef, (currentCount) => {
-    return (currentCount || 1000) + 1;
-  }).catch((error) => {
-    console.error("Counter error:", error);
-    visitorCountEl.textContent = formatMarathiWithCommas(1000);
-  });
-</script>
+  // Fetching live hits from the new Abacus API
+  fetch('https://abacus.jasoncameron.dev/hit/ssp-seva-website/visits')
+    .then(response => response.json())
+    .then(data => {
+      // The API returns data.value, we add your 1,000 views to it
+      const liveTotal = baseViews + data.value;
+      visitorCountEl.textContent = formatMarathiWithCommas(liveTotal);
+    })
+    .catch(error => {
+      console.log("Tracker blocked by browser. Showing base views.");
+    });
+});
+</script> 
 
 // ── Scroll Stats Counter Animation ───────────
 const counters = document.querySelectorAll('.scroll-counter');
