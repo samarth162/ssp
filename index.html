@@ -1450,7 +1450,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       
       <div class="visitor-counter">
         <i class="fa-solid fa-eye"></i>
-        <span class="vc-num" id="visitorCount">०</span>
+        <span class="vc-num" id="visitorCount">1000</span>
         <span class="vc-lbl">एकूण भेटी</span>
       </div>
 
@@ -1552,13 +1552,19 @@ function formatMarathiWithCommas(num) {
 document.addEventListener("DOMContentLoaded", function() {
   const visitorCountEl = document.getElementById('visitorCount');
   
-  fetch('https://api.counterapi.dev/v1/ssp-pat/homepage/up')
+  // Your starting milestone
+  const baseViews = 1000; 
+
+  // Fetching live hits from the new Abacus API
+  fetch('https://abacus.jasoncameron.dev/hit/ssp-seva-website/visits')
     .then(response => response.json())
     .then(data => {
-      visitorCountEl.textContent = formatMarathiWithCommas(data.count);
+      // The API returns data.value, we add your 1,000 views to it
+      const liveTotal = baseViews + data.value;
+      visitorCountEl.textContent = formatMarathiWithCommas(liveTotal);
     })
     .catch(error => {
-      console.error("Counter API failed to load", error);
+      console.log("Tracker blocked by browser. Showing base views.");
     });
 });
 
