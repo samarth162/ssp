@@ -1450,7 +1450,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       
       <div class="visitor-counter">
         <i class="fa-solid fa-eye"></i>
-        <span class="vc-num" id="visitorCount">०</span>
+        <span class="vc-num" id="visitorCount">१,०००</span>
         <span class="vc-lbl">एकूण भेटी</span>
       </div>
 
@@ -1549,18 +1549,41 @@ function formatMarathiWithCommas(num) {
 }
 
 // ── API Visitor Counter ──────────────────────
-document.addEventListener("DOMContentLoaded", function() {
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+  import { getDatabase, ref, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
+  // PASTE YOUR EXACT firebaseConfig HERE:
+const firebaseConfig = {
+  apiKey: "AIzaSyBqGKsKX8L_SRgIYKraAl-N1aOVynGTmS8",
+  authDomain: "ssp-visitor.firebaseapp.com",
+  databaseURL: "https://ssp-visitor-default-rtdb.firebaseio.com",
+  projectId: "ssp-visitor",
+
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const countRef = ref(db, 'visitorCount');
   const visitorCountEl = document.getElementById('visitorCount');
-  
-  fetch('https://api.counterapi.dev/v1/ssp-pat/homepage/up')
-    .then(response => response.json())
-    .then(data => {
-      visitorCountEl.textContent = formatMarathiWithCommas(data.count);
-    })
-    .catch(error => {
-      console.error("Counter API failed to load", error);
-    });
-});
+
+  // Listen to live database updates
+  onValue(countRef, (snapshot) => {
+    const val = snapshot.val();
+    if (val !== null) {
+      visitorCountEl.textContent = formatMarathiWithCommas(val);
+    }
+  });
+
+  // Safely increment +1 per visit (starts at 1000 if empty)
+  runTransaction(countRef, (currentCount) => {
+    return (currentCount || 1000) + 1;
+  }).catch((error) => {
+    console.error("Counter error:", error);
+    visitorCountEl.textContent = formatMarathiWithCommas(1000);
+  });
+</script>
 
 // ── Scroll Stats Counter Animation ───────────
 const counters = document.querySelectorAll('.scroll-counter');
