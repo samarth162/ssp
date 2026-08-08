@@ -1450,7 +1450,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
       
       <div class="visitor-counter">
         <i class="fa-solid fa-eye"></i>
-        <span class="vc-num" id="visitorCount">१,०००</span>
+        <span class="vc-num" id="visitorCount">०</span>
         <span class="vc-lbl">एकूण भेटी</span>
       </div>
 
@@ -1549,26 +1549,18 @@ function formatMarathiWithCommas(num) {
 }
 
 // ── API Visitor Counter ──────────────────────
-<script>
 document.addEventListener("DOMContentLoaded", function() {
   const visitorCountEl = document.getElementById('visitorCount');
   
-  // Your starting milestone
-  const baseViews = 1000; 
-
-  // Fetching live hits from the new Abacus API
-  fetch('https://abacus.jasoncameron.dev/hit/ssp-seva-website/visits')
+  fetch('https://api.counterapi.dev/v1/ssp-pat/homepage/up')
     .then(response => response.json())
     .then(data => {
-      // The API returns data.value, we add your 1,000 views to it
-      const liveTotal = baseViews + data.value;
-      visitorCountEl.textContent = formatMarathiWithCommas(liveTotal);
+      visitorCountEl.textContent = formatMarathiWithCommas(data.count);
     })
     .catch(error => {
-      console.log("Tracker blocked by browser. Showing base views.");
+      console.error("Counter API failed to load", error);
     });
 });
-</script> 
 
 // ── Scroll Stats Counter Animation ───────────
 const counters = document.querySelectorAll('.scroll-counter');
