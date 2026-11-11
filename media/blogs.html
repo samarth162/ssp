@@ -562,7 +562,7 @@ footer a.f-link i{font-size:.7rem;color:var(--green);}
 </a>
 
 <!-- ══════════════════════════════════════════
-     SCRIPTS (Dynamic Blog Fetching)
+     SCRIPTS (Direct Blogger API - Instant Update)
 ══════════════════════════════════════════ -->
 <script>
 // ── Nav dropdown toggle ──────────────────────
@@ -583,83 +583,94 @@ window.addEventListener('scroll', function(){
   nb.style.boxShadow = window.scrollY > 30 ? '0 4px 24px rgba(22,101,52,.14)' : '0 2px 16px rgba(22,101,52,.06)';
 });
 
-// ── DYNAMIC BLOG FETCH LOGIC ──────────────────
-// SSP Seva Blogger RSS Feed URL - Added max-results=50 to fetch up to 50 blogs
-const rssFeedUrl = "https://sspseva.blogspot.com/feeds/posts/default?alt=rss&max-results=50"; 
+// ── DIRECT BLOGGER API (NO THIRD-PARTY APIS, INSTANT UPDATE) ──────────────────
+function loadBloggerPosts(data) {
+  const grid = document.getElementById('blog-grid');
+  grid.innerHTML = ''; // Clear loader
 
-// Using rss2json free API to convert RSS to JSON without needing a backend
-const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeedUrl)}`;
+  const posts = data.feed.entry;
 
-fetch(apiUrl)
-  .then(response => response.json())
-  .then(data => {
-    const grid = document.getElementById('blog-grid');
-    grid.innerHTML = ''; // Clear loader
+  if (posts && posts.length > 0) {
+    posts.forEach(post => {
+      // 1. Get Title
+      const title = post.title.$t;
 
-    if (data.status === 'ok' && data.items && data.items.length > 0) {
-      
-      // Limit to showing latest 50 posts
-      const posts = data.items.slice(0, 50);
+      // 2. Format Date (Marathi Format)
+      const dateObj = new Date(post.published.$t);
+      const formattedDate = dateObj.toLocaleDateString('mr-IN', { day: 'numeric', month: 'long', year: 'numeric' });
 
-      posts.forEach(post => {
-        // Format Date
-        const dateObj = new Date(post.pubDate);
-        const formattedDate = dateObj.toLocaleDateString('mr-IN', { day: 'numeric', month: 'long', year: 'numeric' });
-
-        // Extract a thumbnail image from content if 'thumbnail' field is empty
-        let imgUrl = post.thumbnail;
-        if (!imgUrl) {
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = post.description || post.content;
-          const imgTag = tempDiv.querySelector('img');
-          imgUrl = imgTag ? imgTag.src : '../ssp-logo.png'; // Fallback to logo
+      // 3. Get Link
+      let postLink = '#';
+      for (let i = 0; i < post.link.length; i++) {
+        if (post.link[i].rel === 'alternate') {
+          postLink = post.link[i].href;
+          break;
         }
+      }
 
-        // Clean up description (remove HTML tags)
-        const tempDesc = document.createElement('div');
-        tempDesc.innerHTML = post.description || '';
-        let cleanExcerpt = tempDesc.textContent || tempDesc.innerText || '';
-        if(cleanExcerpt.length > 120) { cleanExcerpt = cleanExcerpt.substring(0, 120) + '...'; }
+      // 4. Get Image (Find high-res thumbnail or fallback to content image)
+      let imgUrl = '../ssp-logo.png'; // Fallback to logo
+      if (post.media$thumbnail) {
+        // Convert Blogger's small 72px thumbnail to high-res (600px)
+        imgUrl = post.media$thumbnail.url.replace(/\/s[0-9]+(\-c)?\//, '/s600/');
+      } else {
+        // Fallback: search for an image directly inside the post content
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = post.content ? post.content.$t : (post.summary ? post.summary.$t : '');
+        const imgTag = tempDiv.querySelector('img');
+        if (imgTag) imgUrl = imgTag.src;
+      }
 
-        // Create Card HTML
-        const cardHTML = `
-          <div class="blog-card">
-            <img src="${imgUrl}" alt="Blog Image" class="blog-img">
-            <div class="blog-content">
-              <div class="blog-date"><i class="fa-regular fa-calendar-days"></i> ${formattedDate}</div>
-              <h3 class="blog-title" title="${post.title}">${post.title}</h3>
-              <p class="blog-excerpt">${cleanExcerpt}</p>
-              <div class="mt-auto pt-4 border-t border-gray-100">
-                <a href="${post.link}" target="_blank" class="read-more">
-                  सविस्तर वाचा <i class="fa-solid fa-arrow-right-long text-xs mt-0.5"></i>
-                </a>
-              </div>
+      // 5. Get Description/Excerpt (Limit to 120 chars)
+      const content = post.content ? post.content.$t : (post.summary ? post.summary.$t : '');
+      const tempDesc = document.createElement('div');
+      tempDesc.innerHTML = content;
+      let cleanExcerpt = tempDesc.textContent || tempDesc.innerText || '';
+      if(cleanExcerpt.length > 120) { cleanExcerpt = cleanExcerpt.substring(0, 120) + '...'; }
+
+      // 6. Build Card HTML
+      const cardHTML = `
+        <div class="blog-card">
+          <img src="${imgUrl}" alt="Blog Image" class="blog-img">
+          <div class="blog-content">
+            <div class="blog-date"><i class="fa-regular fa-calendar-days"></i> ${formattedDate}</div>
+            <h3 class="blog-title" title="${title}">${title}</h3>
+            <p class="blog-excerpt">${cleanExcerpt}</p>
+            <div class="mt-auto pt-4 border-t border-gray-100">
+              <a href="${postLink}" target="_blank" class="read-more">
+                सविस्तर वाचा <i class="fa-solid fa-arrow-right-long text-xs mt-0.5"></i>
+              </a>
             </div>
           </div>
-        `;
-        
-        grid.innerHTML += cardHTML;
-      });
-
-    } else {
-      // Fallback if no blogs found or error in feed
-      grid.innerHTML = `
-        <div class="col-span-full text-center py-10 bg-white rounded-xl border border-gray-100">
-          <i class="fa-regular fa-newspaper text-5xl text-gray-300 mb-4"></i>
-          <h3 class="text-xl font-bold text-gray-500">सध्या कोणतेही नवीन अपडेट्स नाहीत.</h3>
-          <p class="text-gray-400 mt-2">कृपया काही काळानंतर पुन्हा भेट द्या.</p>
         </div>
       `;
-    }
-  })
-  .catch(error => {
-    console.error('Error fetching blog feed:', error);
-    document.getElementById('blog-grid').innerHTML = `
-      <div class="col-span-full text-center py-10 bg-white rounded-xl border border-red-100">
-        <p class="text-red-500 font-bold">माहिती लोड करण्यात तांत्रिक अडचण आली आहे. कृपया पेज रिफ्रेश करा.</p>
+      grid.innerHTML += cardHTML;
+    });
+  } else {
+    // If no posts found
+    grid.innerHTML = `
+      <div class="col-span-full text-center py-10 bg-white rounded-xl border border-gray-100">
+        <i class="fa-regular fa-newspaper text-5xl text-gray-300 mb-4"></i>
+        <h3 class="text-xl font-bold text-gray-500">सध्या कोणतेही नवीन अपडेट्स नाहीत.</h3>
+        <p class="text-gray-400 mt-2">कृपया काही काळानंतर पुन्हा भेट द्या.</p>
       </div>
     `;
-  });
+  }
+}
+
+// Dynamically insert the Google Blogger API Script to fetch data INSTANTLY
+const script = document.createElement('script');
+script.src = "https://sspseva.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=50&callback=loadBloggerPosts";
+document.body.appendChild(script);
+
+// Handle Errors
+script.onerror = function() {
+  document.getElementById('blog-grid').innerHTML = `
+    <div class="col-span-full text-center py-10 bg-white rounded-xl border border-red-100">
+      <p class="text-red-500 font-bold">माहिती लोड करण्यात तांत्रिक अडचण आली आहे. कृपया पेज रिफ्रेश करा.</p>
+    </div>
+  `;
+};
 </script>
 
 </body>
