@@ -660,7 +660,7 @@ function loadBloggerPosts(data) {
 
 // Dynamically insert the Google Blogger API Script to fetch data INSTANTLY
 const script = document.createElement('script');
-script.src = "https://sspseva.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=50&callback=loadBloggerPosts";
+script.src = "https://blog.sspseva.com/feeds/posts/default?alt=json-in-script&max-results=50&callback=loadBloggerPosts";
 document.body.appendChild(script);
 
 // Handle Errors
